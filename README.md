@@ -18,26 +18,26 @@ Korisniku prvo biva predstavljena početna stranica gdje su mu ponuđene tri opc
 ### Login
 
 Ako već imamo račun u sistemu, u mogućnosti smo prijaviti se putem login forme koja sadrži polja za sljedeće podatke:
--username
--password
--login dugme kojim potvrđujemo unos te bivamo usmjereni na formu u kojoj popunjavamo podatke o željenom letu koja će biti kasnije opisana
+- username
+- password
+- login dugme kojim potvrđujemo unos te bivamo usmjereni na formu u kojoj popunjavamo podatke o željenom letu koja će biti kasnije opisana
 
 ### Registracija
 
 Ako nemamo račun u sistemu, u mogućnosti smo kreirati ga putem forme za registraciju koja sadrži polja za sljedeće podatke:
--ime
--prezime
--datum rodjenja
--jmbg
--adresa stanovanja
--broj telefona
--e-mail adresa
--tri opcije plana plaćanja clanarine:
- -jedan mjesec
- -šest mjeseci
- -jedna godina
--broj kreditne kartice
--dugme kojim potvrđujemo svoj unos i kojim kreiramo račun i bivamo usmjereni na početnu stranicu kao prijavljeni (login-ovani) korisnik
+- ime
+- prezime
+- datum rodjenja
+- jmbg
+- adresa stanovanja
+- broj telefona
+- e-mail adresa
+- tri opcije plana plaćanja clanarine:
+ - jedan mjesec
+ - šest mjeseci
+ - jedna godina
+- broj kreditne kartice
+- dugme kojim potvrđujemo svoj unos i kojim kreiramo račun i bivamo usmjereni na početnu stranicu kao prijavljeni (login-ovani) korisnik
 
 ### Kupovina karte
 
