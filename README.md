@@ -28,12 +28,12 @@ U svakom trenutku je moguće odustati od prijave klikom na dugme "otkaži" čime
 Ako nemamo račun u sistemu, u mogućnosti smo kreirati ga putem forme za registraciju koja sadrži polja za sljedeće podatke:
 - ime
 - prezime
-- datum rodjenja
+- datum rođenja
 - jmbg
 - adresa stanovanja
 - broj telefona
 - e-mail adresa
-- tri opcije plana plaćanja clanarine:
+- tri opcije plana plaćanja članarine:
   - jedan mjesec
   - šest mjeseci
   - jedna godina
@@ -62,7 +62,7 @@ U svakom trenutku je moguće odustati od kupovine karte klikom na dugme "otkaži
 
 ### Slanje obavještenja članovima na email adresu
 
-Članovi primaju određena obavještenja na emeil adresu od strane sistema ili administratora sistema. Obavještenja uključuju, ali nisu nužno ograničena na:
+Članovi primaju određena obavještenja na email adresu od strane sistema ili administratora sistema. Obavještenja uključuju, ali nisu nužno ograničena na:
 - informacije o ostvarenom pupustu 
 - informacije o promjenama u sistemu
 - informacije vezane za let (otkazan, pomjeren..)
@@ -76,3 +76,19 @@ Nakon poslanog zahtjeva za kartu, ona biva isprintana i poslana korisniku na adr
 ### Prikaz informacija o destinaciji 
 
 Na karti se nalazi QR kod čijim skeniranjem bivamo odvedeni na web stranicu koja nam daje kratak opis naše destinacije prikupljanjem podataka iz raznih turističkih agencija (popularne lokacije, smještaji itd...).
+
+## Funkcionalnosti
+
+- Login u slučaju da imamo račun
+- Registrovanje novog računa
+- Kupovina karte
+- Slanje obavještenja članovima na email adresu
+- Dostavljanje karte korisniku na adresu
+- Prikaz informacija o destinaciji sa karte nakon skeniranja QR koda
+
+## Akteri 
+
+- Korisnik - registrovani član ili guest korisnik sistema
+- Dostavljač - osoba koja dostavlja kupljenu kartu na odgovarajuću adresu
+- Sistem za interakciju s bankom u kojoj korisnik ima račun
+- Administrator sistema - održava sistem i eventualno šalje neautomatizirane poruke korisnicima sistema
