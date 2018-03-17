@@ -55,5 +55,24 @@ Forma za popunjavanje podataka o željenom letu je u suštini ista za goste i č
   - grad
 - klasa
 - grafički prikaz rasporeda sjedišta u avionu (opcija dostupna samo članovima)
-Dugme kojim potvrđujemo kupovinu karte  
+- adresa stanovanja (vidljivo samo gostima obzirom da je to nepoznat, a potreban podatak kad su gosti u pitanju)
+
+Dugme kojim potvrđujemo kupovinu karte i kojim stupamo u interakciju sa bankovnim računom korisnika. U ovom trenutku moguće je da zahtjev za plaćanje bude odbijen (nedovoljno sredstava na računu, greška u bankovnom sistemu...)
 U svakom trenutku je moguće odustati od kupovine karte klikom na dugme "otkaži" pri čemu bivamo vraćeni na početnu stranicu.
+
+### Slanje obavještenja članovima na email adresu
+
+Članovi primaju određena obavještenja na emeil adresu od strane sistema ili administratora sistema. Obavještenja uključuju, ali nisu nužno ograničena na:
+- informacije o ostvarenom pupustu 
+- informacije o promjenama u sistemu
+- informacije vezane za let (otkazan, pomjeren..)
+- informacije o isteku članarine
+- posebne ponude
+
+### Dostavljanje karte korisniku na adresu
+
+Nakon poslanog zahtjeva za kartu, ona biva isprintana i poslana korisniku na adresu
+
+### Prikaz informacija o destinaciji 
+
+Na karti se nalazi QR kod čijim skeniranjem bivamo odvedeni na web stranicu koja nam daje kratak opis naše destinacije prikupljanjem podataka iz raznih turističkih agencija (popularne lokacije, smještaji itd...).
