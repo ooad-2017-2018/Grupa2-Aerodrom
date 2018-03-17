@@ -33,9 +33,9 @@ Ako nemamo račun u sistemu, u mogućnosti smo kreirati ga putem forme za regist
 - broj telefona
 - e-mail adresa
 - tri opcije plana plaćanja clanarine:
- - jedan mjesec
- - šest mjeseci
- - jedna godina
+  - jedan mjesec
+  - šest mjeseci
+  - jedna godina
 - broj kreditne kartice
 - dugme kojim potvrđujemo svoj unos i kojim kreiramo račun i bivamo usmjereni na početnu stranicu kao prijavljeni (login-ovani) korisnik
 
