@@ -1,8 +1,7 @@
 # Grupa2-Aerodrom
 
-Članovi tima:
+## Članovi tima:
 
-1.Karim Alomerović
-
-2.Nejra Imširović
+1. Karim Alomerović_
+2. Nejra Imširović
 
