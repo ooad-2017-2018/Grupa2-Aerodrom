@@ -15,14 +15,14 @@ Sistem će olakšati kupovinu karata u smislu da možemo kupiti kartu iz udobnos
 
 Korisniku prvo biva predstavljena početna stranica gdje su mu ponuđene tri opcije: login, registracija i kupovina karte.
 
-###Login
+### Login
 
 Ako već imamo račun u sistemu, u mogućnosti smo prijaviti se putem login forme koja sadrži polja za sljedeće podatke:
 -username
 -password
 -login dugme kojim potvrđujemo unos te bivamo usmjereni na formu u kojoj popunjavamo podatke o željenom letu koja će biti kasnije opisana
 
-###Registracija
+### Registracija
 
 Ako nemamo račun u sistemu, u mogućnosti smo kreirati ga putem forme za registraciju koja sadrži polja za sljedeće podatke:
 -ime
@@ -39,7 +39,7 @@ Ako nemamo račun u sistemu, u mogućnosti smo kreirati ga putem forme za regist
 -broj kreditne kartice
 -dugme kojim potvrđujemo svoj unos i kojim kreiramo račun i bivamo usmjereni na početnu stranicu kao prijavljeni (login-ovani) korisnik
 
-###Kupovina karte
+### Kupovina karte
 
 
 
