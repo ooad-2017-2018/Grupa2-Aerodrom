@@ -2,6 +2,7 @@
 
 Članovi tima:
 
-1.Karim Alomerović \\
+1.Karim Alomerović
+
 2.Nejra Imširović
 
