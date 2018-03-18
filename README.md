@@ -28,6 +28,7 @@ U svakom trenutku je moguće odustati od prijave klikom na dugme "otkaži" čime
 Ako nemamo račun u sistemu, u mogućnosti smo kreirati ga putem forme za registraciju koja sadrži polja za sljedeće podatke:
 - ime
 - prezime
+- korisnicko ime
 - datum rođenja
 - jmbg
 - adresa stanovanja
