@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="Aerodrom.AdminPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Aerodrom"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Width="830" Height="490">
+
+    <Grid Background="#FF9DA1AA">
+        <ListView HorizontalAlignment="Left" Height="145" Margin="30,85,0,0" VerticalAlignment="Top" Width="765" Background="#FFAEB2BB" Header="Upravljanje računima" BorderThickness="2,1,1,2" BorderBrush="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="35,245,0,0" Text="Pošalji obavijest" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="30,273,0,0" Text="" VerticalAlignment="Top" Width="250" PlaceholderText="Prima(ju)"/>
+        <TextBox HorizontalAlignment="Left" Margin="30,320,0,0" Text="" VerticalAlignment="Top" Height="105" Width="765" PlaceholderText="Poruka"/>
+        <Button Content="Otkaži" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,440,0,0" Width="110"/>
+        <Button Content="Pošalji" HorizontalAlignment="Left" Margin="158,440,0,0" VerticalAlignment="Top" Width="110"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,20,0,0" Text="Dobrodošli" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36"/>
+        <CheckBox Content="Svi korisnici" HorizontalAlignment="Left" Margin="300,273,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="Svi dostavljači" HorizontalAlignment="Left" Margin="425,273,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="Svi admini" HorizontalAlignment="Left" Margin="565,273,0,0" VerticalAlignment="Top"/>
+        <Button Content="Izmjeni vlastite podatke" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="475,440,0,0" Width="185"/>
+        <Button Content="Izlaz" HorizontalAlignment="Left" Margin="680,440,0,0" VerticalAlignment="Top" Width="110"/>
+    </Grid>
+</Page>
