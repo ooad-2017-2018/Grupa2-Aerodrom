@@ -5,20 +5,60 @@
     xmlns:local="using:Aerodrom"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Width="830" Height="490">
+    mc:Ignorable="d" Width="830" Height="490" HorizontalAlignment="Left" VerticalAlignment="Top">
+    <Grid x:Name="LayoutRoot" Background="#FF9DA1AA" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
 
-    <Grid Background="#FF9DA1AA">
-        <ListView HorizontalAlignment="Left" Height="145" Margin="30,85,0,0" VerticalAlignment="Top" Width="765" Background="#FFAEB2BB" Header="Upravljanje računima" BorderThickness="2,1,1,2" BorderBrush="Black"/>
-        <TextBlock HorizontalAlignment="Left" Margin="35,245,0,0" Text="Pošalji obavijest" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="30,273,0,0" Text="" VerticalAlignment="Top" Width="250" PlaceholderText="Prima(ju)"/>
-        <TextBox HorizontalAlignment="Left" Margin="30,320,0,0" Text="" VerticalAlignment="Top" Height="105" Width="765" PlaceholderText="Poruka"/>
-        <Button Content="Otkaži" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,440,0,0" Width="110"/>
-        <Button Content="Pošalji" HorizontalAlignment="Left" Margin="158,440,0,0" VerticalAlignment="Top" Width="110"/>
-        <TextBlock HorizontalAlignment="Left" Margin="30,20,0,0" Text="Dobrodošli" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36"/>
-        <CheckBox Content="Svi korisnici" HorizontalAlignment="Left" Margin="300,273,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="Svi dostavljači" HorizontalAlignment="Left" Margin="425,273,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="Svi admini" HorizontalAlignment="Left" Margin="565,273,0,0" VerticalAlignment="Top"/>
-        <Button Content="Izmjeni vlastite podatke" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="475,440,0,0" Width="185"/>
-        <Button Content="Izlaz" HorizontalAlignment="Left" Margin="680,440,0,0" VerticalAlignment="Top" Width="110"/>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+
+                <VisualState x:Name="Usko">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Racuni.Width" Value="250"/>
+                        <Setter Target="Poruka.Width" Value="250"/>
+                        <Setter Target="Scroll.Width" Value="300"/>
+                        <Setter Target="ScrollGrid.Height" Value="704"/>
+                        <Setter Target="Poruka.Margin" Value="30,446,0,0"/>
+                        <Setter Target="SviKorisnici.Margin" Value="30,315,0,0"/>
+                        <Setter Target="SviDostavljaci.Margin" Value="30,357,0,0"/>
+                        <Setter Target="SviAdmini.Margin" Value="30,400,0,0"/>
+                        <Setter Target="Otkazi.Margin" Value="30, 568, 0, 0"/>
+                        <Setter Target="Posalji.Margin" Value="158, 568, 0, 0"/>
+                        <Setter Target="Izmjeni.Margin" Value="30, 610, 0, 0"/>
+                        <Setter Target="Izlaz.Margin" Value="30, 652, 0, 0"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="Siroko">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="830" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                    </VisualState.Setters>
+                </VisualState>
+
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <ScrollViewer x:Name="Scroll" Margin="0,0,0,0" Width="830">
+            <Grid x:Name="ScrollGrid" Width="830" Height="490">
+                <ListView x:Name="Racuni" HorizontalAlignment="Left" Height="145" Margin="30,85,0,0" VerticalAlignment="Top" Width="765" Background="#FFAEB2BB" Header="Upravljanje računima" BorderThickness="2,1,1,2" BorderBrush="Black"/>
+                <TextBlock HorizontalAlignment="Left" Margin="35,245,0,0" Text="Pošalji obavijest" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Margin="30,273,0,0" Text="" VerticalAlignment="Top" Width="250" PlaceholderText="Prima(ju)"/>
+                <TextBox x:Name="Poruka" HorizontalAlignment="Left" Margin="30,320,0,0" Text="" VerticalAlignment="Top" Height="105" Width="765" PlaceholderText="Poruka"/>
+                <Button x:Name="Otkazi" Content="Otkaži" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,440,0,0" Width="110"/>
+                <Button x:Name="Posalji" Content="Pošalji" HorizontalAlignment="Left" Margin="158,440,0,0" VerticalAlignment="Top" Width="110"/>
+                <TextBlock HorizontalAlignment="Left" Margin="30,20,0,0" Text="Dobrodošli" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36"/>
+                <CheckBox x:Name="SviKorisnici" Content="Svi korisnici" HorizontalAlignment="Left" Margin="300,273,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="SviDostavljaci" Content="Svi dostavljači" HorizontalAlignment="Left" Margin="425,273,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="SviAdmini" Content="Svi admini" HorizontalAlignment="Left" Margin="565,273,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="Izmjeni" Content="Izmjeni vlastite podatke" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="475,440,0,0" Width="185"/>
+                <Button x:Name="Izlaz" Content="Izlaz" HorizontalAlignment="Left" Margin="680,440,0,0" VerticalAlignment="Top" Width="110"/>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>
