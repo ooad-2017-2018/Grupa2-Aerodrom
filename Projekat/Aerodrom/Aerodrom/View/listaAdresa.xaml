@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="Aerodrom.View.listaAdresa"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Aerodrom"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,-60,-88,0">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="Wide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="First.(Grid.Row)" Value="0" />
+                        <Setter Target="First.(Grid.Column)" Value="0" />
+                        <Setter Target="First.(Grid.ColumnSpan)" Value="1" />
+                       
+
+                    </VisualState.Setters>
+                </VisualState>              
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+       
+        <ScrollViewer>
+
+                <RelativePanel Name="First" >
+                    <ListView HorizontalAlignment="Left" Height="860" Margin="50,50,0,0" VerticalAlignment="Top" Width="1480">
+                        <ListView Height="160" Width="1060"/>
+                    </ListView>
+                    <Button Content="Izlaz" HorizontalAlignment="Left" Margin="1260,844,0,0" VerticalAlignment="Top" Height="56" Width="165" FontWeight="Normal" FontSize="24"/>
+                </RelativePanel>             
+            
+        </ScrollViewer>    
+    </Grid>
+</Page>

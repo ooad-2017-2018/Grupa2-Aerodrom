@@ -92,20 +92,39 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AdminPanel.xaml.cs">
+    <Compile Include="ViewModel\Helper\INavigationService.cs" />
+    <Compile Include="Model\Aerodrom.cs" />
+    <Compile Include="Model\Korisnik.cs" />
+    <Compile Include="ViewModel\AdminPanelViewModel.cs" />
+    <Compile Include="ViewModel\AerodromViewModel.cs" />
+    <Compile Include="ViewModel\Helper\NavigationService.cs" />
+    <Compile Include="ViewModel\Helper\RelayCommand.cs" />
+    <Compile Include="View\AdminPanel.xaml.cs">
       <DependentUpon>AdminPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Homepage.xaml.cs">
+    <Compile Include="View\Preporuke.xaml.cs">
+      <DependentUpon>Preporuke.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Homepage.xaml.cs">
       <DependentUpon>Homepage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Login.xaml.cs">
+    <Compile Include="View\KupovinaKarte.xaml.cs">
+      <DependentUpon>KupovinaKarte.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\listaAdresa.xaml.cs">
+      <DependentUpon>listaAdresa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ProfilKorisnika.xaml.cs">
+      <DependentUpon>ProfilKorisnika.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registracija.xaml.cs">
+    <Compile Include="View\Registracija.xaml.cs">
       <DependentUpon>Registracija.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -130,19 +149,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="AdminPanel.xaml">
+    <Page Include="View\AdminPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Homepage.xaml">
+    <Page Include="View\Preporuke.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Login.xaml">
+    <Page Include="View\Homepage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\KupovinaKarte.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\listaAdresa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Registracija.xaml">
+    <Page Include="View\ProfilKorisnika.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Registracija.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
