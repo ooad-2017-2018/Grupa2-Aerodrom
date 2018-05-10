@@ -41,8 +41,8 @@
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
-            <AppBarButton Icon="Contact" Label="Prijavi se"/>
-            <AppBarButton Icon="AddFriend" Label="Registruj se"/>
+            <AppBarButton Icon="Contact" Label="Prijavi se" Command="{Binding Path=OtvoriLogin}"/>
+            <AppBarButton Icon="AddFriend" Label="Registruj se" Command="{Binding Path=OtvoriRegistraciju}"/>
         </CommandBar>
     </Grid>
 </Page>

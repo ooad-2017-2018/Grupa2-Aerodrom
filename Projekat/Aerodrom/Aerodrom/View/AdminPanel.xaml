@@ -56,8 +56,8 @@
                 <CheckBox x:Name="SviKorisnici" Content="Svi korisnici" HorizontalAlignment="Left" Margin="300,273,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="SviDostavljaci" Content="Svi dostavljači" HorizontalAlignment="Left" Margin="425,273,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="SviAdmini" Content="Svi admini" HorizontalAlignment="Left" Margin="565,273,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="Izmjeni" Content="Izmjeni vlastite podatke" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="475,440,0,0" Width="185"/>
-                <Button x:Name="Izlaz" Content="Izlaz" HorizontalAlignment="Left" Margin="680,440,0,0" VerticalAlignment="Top" Width="110"/>
+                <Button x:Name="Izmjeni" Content="Izmjeni vlastite podatke" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="475,440,0,0" Width="185" Command="{Binding Path=IzmijeniPodatke}"/>
+                <Button x:Name="Izlaz" Content="Odjava" HorizontalAlignment="Left" Margin="680,440,0,0" VerticalAlignment="Top" Width="110" Command="{Binding Path=OdjaviSe}"/>
             </Grid>
         </ScrollViewer>
     </Grid>

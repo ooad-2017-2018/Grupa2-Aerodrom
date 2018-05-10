@@ -39,9 +39,8 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <TextBox x:Name="Korisnicko" Margin="305,148,0,0" Text="" Height="27" PlaceholderText="Korisničko ime" HorizontalAlignment="Left" Width="220" VerticalAlignment="Top"/>
-        <Button x:Name="Otkazi" Content="Otkaži" HorizontalAlignment="Left" Margin="305,240,0,0" VerticalAlignment="Top" Width="100"/>
-        <TextBox x:Name="Lozinka" HorizontalAlignment="Left" Margin="305,196,0,0" Text="" VerticalAlignment="Top" Width="220" PlaceholderText="Lozinka"/>
-        <Button x:Name="Prijava" Content="Prijava" HorizontalAlignment="Left" Margin="424,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.154,0.188" Width="100" IsDoubleTapEnabled="True"/>
+        <TextBox x:Name="Korisnicko" Margin="305,148,0,0" Height="27" PlaceholderText="Korisničko ime" HorizontalAlignment="Left" Width="220" VerticalAlignment="Top" Text="{Binding Path=KorisnickoImeUnos, Mode=TwoWay}"/>
+        <Button x:Name="Prijava" Content="Prijava" HorizontalAlignment="Left" Margin="305,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.154,0.188" Width="220" IsDoubleTapEnabled="True" Command="{Binding Path= PrijaviSe}"/>
+        <PasswordBox x:Name="Lozinka" HorizontalAlignment="Left" Margin="305,195,0,0" VerticalAlignment="Top" Width="220" Height="27" PlaceholderText="Lozinka" Password="{Binding Path=LozinkaUnos, Mode=TwoWay}"/>
     </Grid>
 </Page>

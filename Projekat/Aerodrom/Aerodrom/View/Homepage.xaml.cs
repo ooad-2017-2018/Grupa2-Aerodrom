@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Aerodrom.ViewModel;
+using Windows.UI.Core;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,6 +27,14 @@ namespace Aerodrom
         public Homepage()
         {
             this.InitializeComponent();
+            DataContext = new HomepageViewModel();
+            NavigationCacheMode = NavigationCacheMode.Required;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var currentView = SystemNavigationManager.GetForCurrentView();
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
         }
     }
 }

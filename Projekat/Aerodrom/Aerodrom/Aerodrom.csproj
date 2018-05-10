@@ -92,13 +92,19 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ViewModel\Helper\DateConverter.cs" />
     <Compile Include="ViewModel\Helper\INavigationService.cs" />
-    <Compile Include="Model\Aerodrom.cs" />
+    <Compile Include="Model\KAerodrom.cs" />
     <Compile Include="Model\Korisnik.cs" />
     <Compile Include="ViewModel\AdminPanelViewModel.cs" />
     <Compile Include="ViewModel\AerodromViewModel.cs" />
+    <Compile Include="ViewModel\Helper\Messenger.cs" />
     <Compile Include="ViewModel\Helper\NavigationService.cs" />
     <Compile Include="ViewModel\Helper\RelayCommand.cs" />
+    <Compile Include="ViewModel\HomepageViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\ProfilKorisnikaViewModel.cs" />
+    <Compile Include="ViewModel\RegistracijaViewModel.cs" />
     <Compile Include="View\AdminPanel.xaml.cs">
       <DependentUpon>AdminPanel.xaml</DependentUpon>
     </Compile>

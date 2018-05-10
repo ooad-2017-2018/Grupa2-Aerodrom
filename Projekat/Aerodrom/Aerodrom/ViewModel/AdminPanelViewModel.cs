@@ -16,7 +16,7 @@ namespace Aerodrom.ViewModel
         public ICommand ObrisiKorisnika { get; set; }
         public ICommand PromijeniUloguKorisnika { get; set; }
 
-        public AdminPanelViewModel()
+        public AdminPanelViewModel(Korisnik k)
         {/*
             ObrisiKorisnika = new RelayCommand<object>(obrisiKorisnika);
             DodajKorisnika = new RelayCommand<object>(dodajKorisnika);
