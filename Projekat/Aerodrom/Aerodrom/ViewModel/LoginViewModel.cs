@@ -8,7 +8,7 @@ using Aerodrom.Helper;
 using Aerodrom.ViewModel.Helper;
 using Aerodrom.Model;
 using Windows.UI.Popups;
-
+using Aerodrom.View;
 namespace Aerodrom.ViewModel
 {
     class LoginViewModel
@@ -32,10 +32,12 @@ namespace Aerodrom.ViewModel
                 
                 if (k.KorisnickoIme.Equals(KorisnickoImeUnos) && k.Lozinka.Equals(LozinkaUnos))
                 {
-                    if (k.Priv == Korisnik.Privilegija.Kupac)
+                    if (k.Priv == "Kupac")
                         NavigationService.Navigate(typeof(ProfilKorisnika), new ProfilKorisnikaViewModel(k));
-                    else if (k.Priv == Korisnik.Privilegija.Admin)
+                    else if (k.Priv == "Admin")
                         NavigationService.Navigate(typeof(AdminPanel), new AdminPanelViewModel(k));
+                    else
+                        NavigationService.Navigate(typeof(listaAdresa));
                     return;
                 }
             }

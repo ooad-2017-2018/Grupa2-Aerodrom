@@ -4,24 +4,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using Windows.System;
 
 namespace Aerodrom.Model
 {
     public class Korisnik
     {
-        public enum Privilegija { Admin, Dostavljac, Kupac}
+        
+        public List<String> Privilegije { get; set; }
         String ime, prezime, adresaStanovanja, jmbg, brojKreditneKartice, email, korisnickoIme, lozinka;
         DateTime datumRodjenja;
         Int32 brojTelefona;
         Int32 id;
         static Int32 brojac = 0;
-        bool opcija1Mjesec, opcija6Mjeseci, opcija12Mjeseci;
-        Privilegija priv;
+        bool opcija1Mjesec, opcija6Mjeseci, opcija12Mjeseci, selektovan, admin;
+        String priv;
 
-        public Korisnik() { }
+        private void loadPriv()
+        {
+            Privilegije = new List<string>();
+            Privilegije.Add("Kupac");
+            Privilegije.Add("Admin");
+            Privilegije.Add("Dostavljač");
+            Priv = "Kupac";
+            admin = false;
+        }
+
+        public Korisnik()
+        {
+            loadPriv();
+            
+            id = brojac++;
+        }
 
         public Korisnik(string ime, string prezime, string adresaStanovanja, string jmbg, string brojKreditneKartice, DateTime datumRodjenja, int brojTelefona)
         {
+            loadPriv(); 
             Ime = ime;
             Prezime = prezime;
             AdresaStanovanja = adresaStanovanja;
@@ -29,7 +47,7 @@ namespace Aerodrom.Model
             BrojKreditneKartice = brojKreditneKartice;
             DatumRodjenja = datumRodjenja;
             BrojTelefona = brojTelefona;
-            Priv = Privilegija.Kupac;
+            
             id = brojac++;
         }
 
@@ -50,6 +68,8 @@ namespace Aerodrom.Model
         public bool Opcija6Mjeseci { get => opcija6Mjeseci; set => opcija6Mjeseci = value; }
         public bool Opcija12Mjeseci { get => opcija12Mjeseci; set => opcija12Mjeseci = value; }
         public int Id { get => id; }
-        public Privilegija Priv { get => priv; set => priv = value; }
+        public String Priv { get => priv; set { priv = value; if (value == "Admin") admin = true; } }
+        public bool Selektovan { get => selektovan; set => selektovan = value; }
+        public bool Admin { get => admin; set => admin = value; }
     }
 }

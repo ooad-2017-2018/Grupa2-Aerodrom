@@ -92,6 +92,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ViewModel\Helper\BooleanToVisibilityConverter.cs" />
     <Compile Include="ViewModel\Helper\DateConverter.cs" />
     <Compile Include="ViewModel\Helper\INavigationService.cs" />
     <Compile Include="Model\KAerodrom.cs" />
@@ -155,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="KorisnikItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AdminPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
