@@ -1,6 +1,5 @@
 # Grupa2-Aerodrom
 
-![alt text](https://cdn.drawception.com/images/panels/2015/7-30/RAOD91qz4x-6.png)
 
 ## Članovi tima:
 
