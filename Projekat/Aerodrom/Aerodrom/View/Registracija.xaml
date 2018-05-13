@@ -87,6 +87,12 @@
                     <Button x:Name="Registruj_me" Content="Registruj me" HorizontalAlignment="Left" Margin="31,418,0,0" VerticalAlignment="Top" Width="247" Command="{Binding Path = DodavanjeKorisnika}"/>
                     <PasswordBox x:Name="Password" HorizontalAlignment="Left" Margin="33,368,0,0" VerticalAlignment="Top" PlaceholderText="Password" Width="250" Password="{Binding Path=Korisnik.Lozinka, Mode=TwoWay}"/>
                 </Grid>
+                <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="33,134,-277,-149" Grid.RowSpan="2" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="11" Foreground="#FFF90000" Text="{Binding Korisnik.Errors[Ime][0]}" Width="244"/>
+                <TextBlock HorizontalAlignment="Left" Margin="34,181,-275,-196"  TextWrapping="Wrap" VerticalAlignment="Top" FontSize="11" Grid.ColumnSpan="2" Grid.RowSpan="2" Foreground="#FFF30404" Text="{Binding Korisnik.Errors[Prezime][0]}" Width="241"/>
+                <TextBlock HorizontalAlignment="Left" Margin="34,305,-275,-320"  TextWrapping="Wrap" VerticalAlignment="Top" FontSize="11" Foreground="#FFF30404" Width="241" Text="{Binding Korisnik.Errors[Jmbg][0]}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <TextBlock HorizontalAlignment="Left" Margin="35,351,-276,-366"  TextWrapping="Wrap" VerticalAlignment="Top" FontSize="11" Foreground="#FFF30404" Width="241" Text="{Binding Korisnik.Errors[AdresaStanovanja][0]}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <TextBlock HorizontalAlignment="Left" Margin="35,399,-276,-414"  TextWrapping="Wrap" VerticalAlignment="Top" FontSize="11" Foreground="#FFF30404" Width="241" Text="{Binding Korisnik.Errors[BrojTelefona][0]}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <TextBlock HorizontalAlignment="Left" Margin="34,451,-275,-466"  TextWrapping="Wrap" VerticalAlignment="Top" FontSize="11" Foreground="#FFF30404" Width="241" Text="{Binding Korisnik.Errors[Email][0]}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
             </Grid>
         </ScrollViewer>
 

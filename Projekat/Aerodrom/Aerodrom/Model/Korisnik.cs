@@ -5,10 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using Windows.System;
+using System.ComponentModel.DataAnnotations;
+using Prism.Windows.Validation;
 
 namespace Aerodrom.Model
 {
-    public class Korisnik
+    public class Korisnik : ValidatableBindableBase
     {
         
         public List<String> Privilegije { get; set; }
@@ -51,18 +53,27 @@ namespace Aerodrom.Model
             id = brojac++;
         }
 
-        public string Ime { get => ime; set => ime = value; }
-        public string Prezime { get => prezime; set => prezime = value; }
-        public string AdresaStanovanja { get => adresaStanovanja; set => adresaStanovanja = value; }
-        public string Jmbg { get => jmbg; set => jmbg = value; }
-        public string BrojKreditneKartice { get => brojKreditneKartice; set => brojKreditneKartice = value; }
+        [Required(ErrorMessage = "Niste unijeli ime.")]
+        public string Ime { get => ime; set { SetProperty(ref ime, value); } }
+        [Required(ErrorMessage = "Niste unijeli prezime.")]
+        public string Prezime { get => prezime; set { SetProperty(ref prezime, value); } }
+        [Required(ErrorMessage = "Niste unijeli adresu stanovanja.")]
+        public string AdresaStanovanja { get => adresaStanovanja; set { SetProperty(ref adresaStanovanja, value); } }
+        [Required(ErrorMessage = "Niste unijeli jmbg.")]
+        public string Jmbg { get => jmbg; set { SetProperty(ref jmbg, value); } }
+        [Required(ErrorMessage = "Niste unijeli broj kreditne kartice.")]
+        public string BrojKreditneKartice { get => brojKreditneKartice; set { SetProperty(ref brojKreditneKartice, value); } }
         public DateTime DatumRodjenja
         {
             get => datumRodjenja; set => datumRodjenja = value;
         }
-        public int BrojTelefona { get => brojTelefona; set => brojTelefona = value; }
-        public string Email { get => email; set => email = value; }
+        [Required(ErrorMessage = "Niste unijeli broj telefona.")]
+        public int BrojTelefona { get => brojTelefona; set { SetProperty(ref brojTelefona, value); } }
+        [Required(ErrorMessage = "Niste unijeli email.")]
+        public string Email { get => email; set { SetProperty(ref email, value); } }
+        [Required(ErrorMessage = "Niste unijeli korisnicko ime.")]
         public string KorisnickoIme { get => korisnickoIme; set => korisnickoIme = value; }
+        [Required(ErrorMessage = "Niste unijeli lozinku.")]
         public string Lozinka { get => lozinka; set => lozinka = value; }
         public bool Opcija1Mjesec { get => opcija1Mjesec; set => opcija1Mjesec = value; }
         public bool Opcija6Mjeseci { get => opcija6Mjeseci; set => opcija6Mjeseci = value; }
