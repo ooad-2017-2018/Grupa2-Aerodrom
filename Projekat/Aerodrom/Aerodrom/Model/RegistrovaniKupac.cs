@@ -11,22 +11,18 @@ namespace Aerodrom.Model
     public class RegistrovaniKupac : Korisnik
     {     
 
-        string korisnickoIme, lozinka, emailAdresa;
+        
         PlanPlacanja planPlacanja;
 
         public RegistrovaniKupac(string ime, string prezime, string adresaStanovanja, string jmbg, string brojKreditneKartice,
             DateTime datumRodjenja, int brojTelefona, string korisnickoIme, string lozinka, string emailAdresa, PlanPlacanja planPlacanja) :
-             base(ime, prezime, adresaStanovanja, jmbg, brojKreditneKartice, datumRodjenja, brojTelefona)
+             base(ime, prezime, adresaStanovanja, jmbg, brojKreditneKartice, datumRodjenja, brojTelefona, emailAdresa, korisnickoIme, lozinka)
         {
-            this.korisnickoIme = korisnickoIme;
-            this.lozinka = lozinka;
-            this.emailAdresa = emailAdresa;
+           
             this.planPlacanja = planPlacanja;
         }
 
-        public string KorisnickoIme1 { get => korisnickoIme; set => korisnickoIme = value; }
-        public string Lozinka1 { get => lozinka; set => lozinka = value; }
-        public string EmailAdresa { get => emailAdresa; set => emailAdresa = value; }
+       
         internal PlanPlacanja PlanPlacanja { get => planPlacanja; set => planPlacanja = value; }
     }
 }
