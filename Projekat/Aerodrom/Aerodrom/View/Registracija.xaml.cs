@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Aerodrom.ViewModel;
 using Windows.UI.Core;
+using Microsoft.WindowsAzure.MobileServices;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -24,6 +26,9 @@ namespace Aerodrom
     /// </summary>
     public sealed partial class Registracija : Page
     {
+
+        //public static MobileServiceClient MobileService = new MobileServiceClient("https://OOAD.azurewebsites.net");
+
         public Registracija()
         {
             this.InitializeComponent();

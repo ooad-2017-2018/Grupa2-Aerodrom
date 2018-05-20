@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace Aerodrom.Model
 {
-    public enum PlanPlacanja { Mjesec, Mjeseci6, Mjeseci12 };
+    
 
     public class RegistrovaniKupac : Korisnik
-    {     
-
-        
-        PlanPlacanja planPlacanja;
+    {
+        private string planPlacanja;
 
         public RegistrovaniKupac(string ime, string prezime, string adresaStanovanja, string jmbg, string brojKreditneKartice,
-            DateTime datumRodjenja, int brojTelefona, string korisnickoIme, string lozinka, string emailAdresa, PlanPlacanja planPlacanja) :
+            DateTime datumRodjenja, int brojTelefona, string korisnickoIme, string lozinka, string emailAdresa, string planPlacanja) :
              base(ime, prezime, adresaStanovanja, jmbg, brojKreditneKartice, datumRodjenja, brojTelefona, emailAdresa, korisnickoIme, lozinka)
         {
            
@@ -23,6 +21,6 @@ namespace Aerodrom.Model
         }
 
        
-        internal PlanPlacanja PlanPlacanja { get => planPlacanja; set => planPlacanja = value; }
+        public string PlanPlacanja { get => planPlacanja; set => planPlacanja = value; }
     }
 }

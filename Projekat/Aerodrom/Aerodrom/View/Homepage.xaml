@@ -7,7 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" Width="830" Height="449" HorizontalAlignment="Left" VerticalAlignment="Top">
 
-    <Grid Background="#FF9DA1AA" Margin="0,0,0,0">
+    <Grid Background="#FF9EB7EE" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Stretch" RequestedTheme="Default" Visibility="Visible" RenderTransformOrigin="0,0.5">
+        <Grid.BorderBrush>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF5959F1" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.BorderBrush>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="VisualStateGroup">
 
@@ -35,7 +41,9 @@
 
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <FlipView x:Name="Flip" Margin="151,85,159,0" VerticalAlignment="Top" Height="251"/>
+        <FlipView x:Name="Flip" Margin="151,85,159,0" VerticalAlignment="Top" Height="251">
+            <Image Source="Assets/london.png" />
+        </FlipView>
         <Button x:Name="Kupi" Content="Kupi kartu" HorizontalAlignment="Stretch" Margin="263,369,263,0" VerticalAlignment="Top" Height="39"/>
         <CommandBar x:Name="Komande" Margin="0,0,0,365" VerticalAlignment="Stretch" Background="#33000000">
             <CommandBar.Content>

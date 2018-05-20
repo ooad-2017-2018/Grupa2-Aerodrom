@@ -92,6 +92,8 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DB\ConnectionString.cs" />
+    <Compile Include="DB\KorisnikTabela.cs" />
     <Compile Include="Model\Destinacija.cs" />
     <Compile Include="Model\Dostava.cs" />
     <Compile Include="Model\Dostavljac.cs" />
@@ -148,6 +150,7 @@
     <None Include="Aerodrom_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\london.PNG" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

@@ -16,9 +16,9 @@ namespace Aerodrom.Model
         public List<String> Privilegije { get; set; }
         String ime, prezime, adresaStanovanja, jmbg, brojKreditneKartice, email, korisnickoIme, lozinka;
         DateTime datumRodjenja;
-        Int32 brojTelefona;
-        Int32 id;
-        static Int32 brojac = 0;
+        int brojTelefona;
+        int id;
+        static int brojac = 0;
         bool opcija1Mjesec, opcija6Mjeseci, opcija12Mjeseci, selektovan, admin;
         String priv;
 
@@ -50,9 +50,7 @@ namespace Aerodrom.Model
             BrojKreditneKartice = brojKreditneKartice;
             DatumRodjenja = datumRodjenja;
             BrojTelefona = brojTelefona;
-            Email1 = email;
-            KorisnickoIme1 = korisnickoIme;
-            Lozinka1 = lozinka;
+           
             id = brojac++;
         }
 
@@ -99,8 +97,6 @@ namespace Aerodrom.Model
         public String Priv { get => priv; set { priv = value; if (value == "Admin") admin = true; } }
         public bool Selektovan { get => selektovan; set => selektovan = value; }
         public bool Admin { get => admin; set => admin = value; }
-        public string Email1 { get => email; set => email = value; }
-        public string KorisnickoIme1 { get => korisnickoIme; set => korisnickoIme = value; }
-        public string Lozinka1 { get => lozinka; set => lozinka = value; }
+        
     }
 }
