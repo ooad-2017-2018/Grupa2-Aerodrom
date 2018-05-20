@@ -9,6 +9,7 @@ namespace Aerodrom.DB
 {
     class KorisnikTabela
     {
+        public string id { get; set; }
         public String ime { get; set; }
         public String prezime { get; set; }
         public String adresaStanovanja { get; set; }
@@ -18,8 +19,7 @@ namespace Aerodrom.DB
         public String korisnickoIme { get; set; }
         public String lozinka { get; set; }
         public DateTime datumRodjenja { get; set; }
-        public int brojTelefona { get; set; }
-        public int id { get; set; }
+        public int brojTelefona { get; set; }       
         public bool opcija1Mjesec { get; set; }
         public bool opcija6Mjeseci { get; set; }
         public bool opcija12Mjeseci { get; set; }

@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="DB\ConnectionString.cs" />
     <Compile Include="DB\KorisnikTabela.cs" />
+    <Compile Include="DB\TestDB.cs" />
     <Compile Include="Model\Destinacija.cs" />
     <Compile Include="Model\Dostava.cs" />
     <Compile Include="Model\Dostavljac.cs" />

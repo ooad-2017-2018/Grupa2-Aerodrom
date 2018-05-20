@@ -22,6 +22,7 @@ namespace Aerodrom.ViewModel
     {
         
         IMobileServiceTable<KorisnikTabela> userTableObj = App.MobileService.GetTable<KorisnikTabela>();
+        IMobileServiceTable<TestDB> testTable = App.MobileService.GetTable<TestDB>();
 
         public HomepageViewModel Parent { get; set; }
         public ICommand DodavanjeKorisnika { get; set; }
@@ -45,6 +46,9 @@ namespace Aerodrom.ViewModel
             try
             {
                 KorisnikTabela obj = new KorisnikTabela();
+                TestDB testObj = new TestDB();
+                testObj.atribut = "Testni3";
+              
 
                 obj.ime = Korisnik.Ime;
                 obj.prezime = Korisnik.Prezime;
@@ -52,8 +56,7 @@ namespace Aerodrom.ViewModel
                 obj.brojKreditneKartice = Korisnik.BrojKreditneKartice;
                 obj.brojTelefona = Korisnik.BrojTelefona;
                 obj.datumRodjenja = Korisnik.DatumRodjenja;
-                obj.email = Korisnik.Email;
-                obj.id = Korisnik.Id;
+                obj.email = Korisnik.Email;             
                 obj.korisnickoIme = Korisnik.KorisnickoIme;
                 obj.lozinka = Korisnik.Lozinka;
                 obj.opcija12Mjeseci = Korisnik.Opcija12Mjeseci;
@@ -61,10 +64,10 @@ namespace Aerodrom.ViewModel
                 obj.opcija1Mjesec = Korisnik.Opcija1Mjesec;
                 obj.priv = Korisnik.Priv;
                 obj.admin = Korisnik.Admin;
-                obj.jmbg = Korisnik.Jmbg;
-                obj.updatedAt = DateTime.Now;
+                obj.jmbg = Korisnik.Jmbg;             
 
                 userTableObj.InsertAsync(obj);
+                testTable.InsertAsync(testObj);
 
                 Messenger.prikaziPoruku("Korisnik je uspjesno registrovan!");
                 Parent.NavigationService.GoBack();
