@@ -7,7 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" Width="830" Height="450" HorizontalAlignment="Left" VerticalAlignment="Top">
 
-    <Grid Margin="0,0,0,0" Background="#FF9DA1AA">
+    <Grid Margin="0,0,0,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/Airplane.gif"/>
+        </Grid.Background>
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="VisualStateGroup">
