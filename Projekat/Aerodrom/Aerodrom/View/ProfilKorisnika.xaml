@@ -53,6 +53,9 @@
 
         </Grid.RowDefinitions>
         <ScrollViewer Grid.Row="1">
+            <ScrollViewer.Background>
+                <ImageBrush ImageSource="ms-appx:///Assets/Airplane2.gif" Stretch="UniformToFill"/>
+            </ScrollViewer.Background>
 
             <Grid>
                 <Grid.RowDefinitions>
