@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Aerodrom.Helper;
 using Aerodrom.Model;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace Aerodrom.ViewModel
 {
@@ -13,7 +15,7 @@ namespace Aerodrom.ViewModel
     {
         public INavigationService NavigationService { get; set; }
         public ICommand OtvoriRegistraciju { get; set; }
-        public ICommand OtvoriLogin { get; set; }
+        public ICommand OtvoriLogin { get; set; }     
 
         public HomepageViewModel()
         {
@@ -25,7 +27,7 @@ namespace Aerodrom.ViewModel
                 KAerodrom.Korisnici.Add(admin);
             OtvoriRegistraciju = new RelayCommand<object>(otvoriRegistraciju, mozeLiSeOtvoritiRegistracija);
             OtvoriLogin = new RelayCommand<object>(otvoriLogin, mozeLiSeOtvoritiLogin);
-            NavigationService = new NavigationService();
+            NavigationService = new NavigationService();          
         }
 
         public void otvoriRegistraciju(object parametar)

@@ -52,7 +52,14 @@
             <RowDefinition/>
 
         </Grid.RowDefinitions>
+<<<<<<< HEAD
         <ScrollViewer Grid.Row="1" Background="#FF9EB7EE">
+=======
+        <ScrollViewer Grid.Row="1">
+            <ScrollViewer.Background>
+                <ImageBrush ImageSource="ms-appx:///Assets/Airplane2.gif" Stretch="UniformToFill"/>
+            </ScrollViewer.Background>
+>>>>>>> 32b15a209d647746c7e714ed577640caf5f15c1e
 
             <Grid>
                 <Grid.RowDefinitions>

@@ -60,9 +60,16 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
+<<<<<<< HEAD
         <ScrollViewer x:Name="Scroll" Margin="0,0,0,0" Width="830" Background="#FF9EB7EE">
+=======
+        <ScrollViewer x:Name="Scroll" Margin="0,0,0,0" Width="830">
+            <ScrollViewer.Background>
+                <ImageBrush ImageSource="ms-appx:///Assets/Airplane.gif"/>
+            </ScrollViewer.Background>
+>>>>>>> 32b15a209d647746c7e714ed577640caf5f15c1e
             <Grid x:Name="ScrollGrid" Width="830" Height="490">
-                <ListView x:Name="Racuni" HorizontalAlignment="Left" Height="145" Margin="30,85,0,0" VerticalAlignment="Top" Width="765" Background="#FFAEB2BB" Header="Upravljanje računima" BorderThickness="2,1,1,2" BorderBrush="Black" ItemsSource="{Binding Path=Korisnici, Mode=TwoWay}" ItemTemplate="{StaticResource koirsnikListItem}"/>
+                <ListView x:Name="Racuni" HorizontalAlignment="Left" Height="145" Margin="30,85,0,0" VerticalAlignment="Top" Width="765" Header="Upravljanje računima" BorderThickness="2,1,1,2" BorderBrush="Black" ItemsSource="{Binding Path=Korisnici, Mode=TwoWay}" ItemTemplate="{StaticResource koirsnikListItem}"/>
                 <TextBlock HorizontalAlignment="Left" Margin="35,245,0,0" Text="Pošalji obavijest" TextWrapping="Wrap" VerticalAlignment="Top"/>
                 <TextBox x:Name="Poruka" HorizontalAlignment="Left" Margin="30,320,0,0" Text="" VerticalAlignment="Top" Height="105" Width="765" PlaceholderText="Poruka"/>
                 <Button x:Name="Otkazi" Content="Otkaži" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,440,0,0" Width="110"/>

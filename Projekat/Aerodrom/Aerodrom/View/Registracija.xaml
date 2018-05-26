@@ -55,7 +55,14 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
+<<<<<<< HEAD
         <ScrollViewer x:Name="Scroll" Margin="0,0,0,-473" Background="#FF9EB7EE" HorizontalAlignment="Stretch" Grid.RowSpan="2" Height="473" VerticalAlignment="Top">
+=======
+        <ScrollViewer x:Name="Scroll" Margin="0,0,0,-473" HorizontalAlignment="Stretch" Grid.RowSpan="2" Height="473" VerticalAlignment="Top">
+            <ScrollViewer.Background>
+                <ImageBrush ImageSource="ms-appx:///Assets/Airplane2.gif" Stretch="UniformToFill"/>
+            </ScrollViewer.Background>
+>>>>>>> 32b15a209d647746c7e714ed577640caf5f15c1e
             <Grid x:Name="ScrollGrid" Width="645" HorizontalAlignment="Left" VerticalAlignment="Top" Height="970">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="242*"/>
@@ -77,7 +84,7 @@
                 <TextBox HorizontalAlignment="Left" Margin="30,415,0,0"  VerticalAlignment="Top" PlaceholderText="E-mail adresa" Width="250" Text= "{Binding Path = Korisnik.Email, Mode =TwoWay}"/>
                 <Grid x:Name="SubGrid" Margin="0,-1,0,0" Grid.Column="1" HorizontalAlignment="Left" Width="328">
                     <TextBox x:Name="Korisnicko" HorizontalAlignment="Left" Margin="33,320,0,0" VerticalAlignment="Top" PlaceholderText="Korisničko ime" Width="250" Grid.Column="1" Text= "{Binding Path = Korisnik.KorisnickoIme, Mode =TwoWay}"/>
-                    <StackPanel x:Name="Planovi" HorizontalAlignment="Left" Height="100" Margin="33,139,-225,0" VerticalAlignment="Top" Width="190" Tag="fgf" BorderThickness="2,1,1,2" BorderBrush="#FF060606" Background="#FFAEB2BB" Grid.Column="1">
+                    <StackPanel x:Name="Planovi" HorizontalAlignment="Left" Height="100" Margin="33,139,-225,0" VerticalAlignment="Top" Width="190" Tag="fgf" BorderThickness="2,1,1,2" BorderBrush="#FF060606" Grid.Column="1">
                         <RadioButton Content="1 mjesec" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,0,-3,0" IsChecked="{Binding Path=Korisnik.Opcija1Mjesec, Mode=TwoWay}"/>
                         <RadioButton Content="6 mjeseci" HorizontalAlignment="Left" VerticalAlignment="Stretch" BorderBrush="#FFACACAC" Width="187" Margin="5,0,0,0" IsChecked="{Binding Path=Korisnik.Opcija6Mjeseci, Mode=TwoWay}"/>
                         <RadioButton Content="12 mjeseci" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="187" Margin="5,0,0,0" IsChecked="{Binding Path=Korisnik.Opcija12Mjeseci, Mode=TwoWay}"/>

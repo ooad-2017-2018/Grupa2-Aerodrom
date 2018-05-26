@@ -152,6 +152,9 @@
     <None Include="Aerodrom_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Airplane.gif" />
+    <Content Include="Assets\Airplane.jpg" />
+    <Content Include="Assets\Airplane2.gif" />
     <Content Include="Assets\london.PNG" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
