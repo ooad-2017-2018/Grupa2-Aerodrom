@@ -26,7 +26,7 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
        
-        <ScrollViewer>
+        <ScrollViewer Background="#FF9EB7EE">
 
                 <RelativePanel Name="First" >
                     <ListView HorizontalAlignment="Left" Height="860" Margin="50,50,0,0" VerticalAlignment="Top" Width="1480">

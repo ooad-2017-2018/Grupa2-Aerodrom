@@ -7,10 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="#FF9EB7EE">
         <TextBlock HorizontalAlignment="Left" Margin="112,72,0,0" Text="Molimo popunite tražena polja:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Margin="113,135,0,0" Text="Tip:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22"/>
-        <RadioButton x:Name="jednosmjerna" Content="JednosmC:\Users\Acer\Desktop\Grupa2-Aerodrom\Projekat\Aerodrom\Aerodrom\Model\Korisnik.csjerna" HorizontalAlignment="Left" Margin="111,186,0,0" VerticalAlignment="Top" FontSize="22"/>
+        <RadioButton x:Name="jednosmjerna" Content="Jednosmsjerna" HorizontalAlignment="Left" Margin="111,186,0,0" VerticalAlignment="Top" FontSize="22"/>
         <RadioButton x:Name="ukljucujePovratnu" Content="Uključuje povratnu" HorizontalAlignment="Left" Margin="300,186,0,0" VerticalAlignment="Top" FontSize="22"/>
         <TextBlock HorizontalAlignment="Left" Margin="113,269,0,0" Text="Datum polaska" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22"/>
         <DatePicker HorizontalAlignment="Left" Margin="110,323,0,0" VerticalAlignment="Top" FontSize="22"/>

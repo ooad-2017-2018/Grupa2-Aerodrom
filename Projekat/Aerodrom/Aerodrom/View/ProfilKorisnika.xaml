@@ -18,9 +18,9 @@
                         <AdaptiveTrigger MinWindowWidth="800" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="First.Orientation" Value="Vertical" />
+                        <Setter Target="First.(Grid.Row)" Value="0" />
                         <Setter Target="First.(Grid.Column)" Value="0" />
-                        <Setter Target="Second.Orientation" Value="Vertical" />
+                        <Setter Target="Second.(Grid.Row)" Value="0" />
                         <Setter Target="Second.(Grid.Column)" Value="1" />
 
 
@@ -52,7 +52,7 @@
             <RowDefinition/>
 
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="1">
+        <ScrollViewer Grid.Row="1" Background="#FF9EB7EE">
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -66,7 +66,7 @@
 
                 <StackPanel Name="First" >
                     <TextBlock HorizontalAlignment="Left" Margin="66,51,0,0" Text="Dobro došli!" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
-                    <TextBox x:Name="ime" Text="{Binding Korisnik.Ime, Mode=TwoWay}" VerticalAlignment="Top" Margin="40,30,773,0" PlaceholderText="Ime:" Height="38"/>
+                    <TextBox x:Name="ime" HorizontalAlignment="Left" Text="{Binding Korisnik.Ime, Mode=TwoWay}" VerticalAlignment="Top" Margin="40,30,0,0" PlaceholderText="Ime:" Height="38" Width="688"/>
                     <TextBox x:Name="prezime" HorizontalAlignment="Left" Text="{Binding Path=Korisnik.Prezime, Mode=TwoWay}" VerticalAlignment="Top" Margin="40,30,0,0" Width="688" PlaceholderText="Prezime: "/>
                     <TextBox x:Name="datumRodjenja" HorizontalAlignment="Left" Text="{Binding Path=Korisnik.DatumRodjenja, Mode=TwoWay}" VerticalAlignment="Top" Margin="40,30,0,0" RenderTransformOrigin="-0.571,0.375" Width="688" PlaceholderText="Datum rodjenja:"/>
                     <TextBox x:Name="jmbg" HorizontalAlignment="Left" Text="{Binding Path=Korisnik.Jmbg, Mode=TwoWay}" VerticalAlignment="Top" Margin="40,30,0,0" Width="688" PlaceholderText="JMBG: "/>
@@ -76,18 +76,23 @@
                     <TextBox x:Name="kreditnaKartica" HorizontalAlignment="Left" Text="{Binding Path=Korisnik.BrojKreditneKartice, Mode=TwoWay}" VerticalAlignment="Top" Margin="40,30,0,0" Width="688" PlaceholderText="Broj kreditne kartice:"/>
                     <TextBox HorizontalAlignment="Left" Width="688" Height="32" Margin="40,30,0,0" PlaceholderText="Korisnicko ime" Text="{Binding Path=Korisnik.KorisnickoIme, Mode=TwoWay}"/>
                     <PasswordBox Width="688" Margin="40,30,0,0" HorizontalAlignment="Left" PlaceholderText="Lozinka" Password="{Binding Path=Korisnik.Lozinka, Mode=TwoWay}"/>
+                   
                 </StackPanel>
                 <StackPanel Name="Second" Grid.Row="1" >
                     <TextBlock HorizontalAlignment="Left" Margin="50,50,0,0" Text="Informacije o kupljenim kartama" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" Visibility="{Binding Path = Korisnik.Admin, Converter={StaticResource BoolToVis}}"/>
-                    <ListView Height="398" Margin="50,25,153,0" VerticalAlignment="Top" Visibility="{Binding Path = Korisnik.Admin, Converter={StaticResource BoolToVis}}"/>
-                    <Button x:Name="sacuvaj" Content="Sačuvaj promjene" HorizontalAlignment="Left" Margin="500,50,0,0" VerticalAlignment="Top" FontSize="22" Command="{Binding Path=SacuvajPromjene}"/>
-                    <Button x:Name="kupi" Content="Kupi kartu" HorizontalAlignment="Left" Margin="500,20,0,0" VerticalAlignment="Top" FontSize="22" Width="190" Visibility="{Binding Path = Korisnik.Admin, Converter={StaticResource BoolToVis}}"/>
+                    <ListView Height="28" Margin="50,25,168,0" VerticalAlignment="Top" Visibility="{Binding Path = Korisnik.Admin, Converter={StaticResource BoolToVis}}" RenderTransformOrigin="0.5,0.5">
+                        <ListView.RenderTransform>
+                            <CompositeTransform ScaleY="-1"/>
+                        </ListView.RenderTransform>
+                    </ListView>
+                    <Button x:Name="sacuvaj" Content="Sačuvaj promjene" HorizontalAlignment="Left" Margin="500,50,0,0" VerticalAlignment="Top" FontSize="22" Command="{Binding SacuvajPromjene}"/>
+                    <Button x:Name="kupi" Content="Kupi kartu" HorizontalAlignment="Left" Margin="500,20,0,0" VerticalAlignment="Top" FontSize="22" Width="190" Visibility="{Binding Korisnik.Admin, Converter={StaticResource BoolToVis}}"/>
                     <Button x:Name="kupi_Copy" Content="Odjavi se" HorizontalAlignment="Left" Margin="500,20,0,0" VerticalAlignment="Top" FontSize="22" Width="190" Command ="{Binding Path=OdjaviSe}"/>
-                
-                <TextBlock HorizontalAlignment="Left" Margin="43,730,0,0" Text="Plan placanja:" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="90"/>
-                <RadioButton Content="1 mjesec" HorizontalAlignment="Left" Margin="171,730,0,0" VerticalAlignment="Top" IsChecked="{Binding Path=Korisnik.Opcija1Mjesec, Mode = TwoWay}" Height="32" Width="120"/>
-                <RadioButton Content="6 mjeseci" HorizontalAlignment="Left" Margin="328,730,0,0" VerticalAlignment="Top" IsChecked="{Binding Path=Korisnik.Opcija6Mjeseci, Mode = TwoWay}" Height="32" Width="120"/>
-                <RadioButton Content="12 mjeseci" HorizontalAlignment="Left" Margin="472,730,0,0" VerticalAlignment="Top" IsChecked="{Binding Path=Korisnik.Opcija12Mjeseci, Mode = TwoWay}" Height="32" Width="120"/>
+
+                    <TextBlock HorizontalAlignment="Left" Margin="43,730,0,0" Text="Plan placanja:" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="90"/>
+                    <RadioButton Content="1 mjesec" HorizontalAlignment="Left" Margin="171,730,0,0" VerticalAlignment="Top" IsChecked="{Binding Path=Korisnik.Opcija1Mjesec, Mode = TwoWay}" Height="32" Width="120"/>
+                    <RadioButton Content="6 mjeseci" HorizontalAlignment="Left" Margin="328,730,0,0" VerticalAlignment="Top" IsChecked="{Binding Path=Korisnik.Opcija6Mjeseci, Mode = TwoWay}" Height="32" Width="120"/>
+                    <RadioButton Content="12 mjeseci" HorizontalAlignment="Left" Margin="472,730,0,0" VerticalAlignment="Top" IsChecked="{Binding Path=Korisnik.Opcija12Mjeseci, Mode = TwoWay}" Height="32" Width="120"/>
                 </StackPanel>
             </Grid>
         </ScrollViewer>

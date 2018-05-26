@@ -9,10 +9,10 @@ namespace Aerodrom.ViewModel.Helper
 {
     public class Messenger
     {
-        public static void prikaziPoruku(String p)
+        public  static void prikaziPoruku(String p)
         {
             var dialog = new MessageDialog(p);
-            dialog.ShowAsync();
+             dialog.ShowAsync();
         }
     }
 }

@@ -31,13 +31,13 @@ namespace Aerodrom.ViewModel
         {
             foreach (Korisnik k in KAerodrom.Korisnici)
             {
-                if (k.Id == Korisnik.Id)
+                /*if (k.Id == Korisnik.Id)
                 {
                     KAerodrom.Korisnici.Remove(k);
                     KAerodrom.Korisnici.Add(Korisnik);
                     Messenger.prikaziPoruku("Promjene uspjesno sačuvane.");
                     break;
-                }
+                }*/
             }
         }
 

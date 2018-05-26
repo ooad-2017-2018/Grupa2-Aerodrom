@@ -9,40 +9,83 @@ using Aerodrom.ViewModel.Helper;
 using Aerodrom.Model;
 using Windows.UI.Popups;
 using Aerodrom.View;
+using Microsoft.WindowsAzure.MobileServices;
+using Aerodrom.DB;
+using Aerodrom.Helper;
+using System.Data;
+
+using System.Diagnostics;
+
+
 namespace Aerodrom.ViewModel
 {
     class LoginViewModel
     {
-        public String KorisnickoImeUnos{get; set;}
+        IMobileServiceTable<KorisnikTabela> userTableObj = App.MobileService.GetTable<KorisnikTabela>();
+        public String KorisnickoImeUnos { get; set; }
         public String LozinkaUnos { get; set; }
         public HomepageViewModel Parent { get; set; }
         public ICommand PrijaviSe { get; set; }
         public INavigationService NavigationService { get; set; }
+       // public List<Korisnik> korisnici { get; set; }
         public LoginViewModel(HomepageViewModel parent)
         {
+           // korisnici = new List<Korisnik>();
+            
             NavigationService = new NavigationService();
             Parent = parent;
             PrijaviSe = new RelayCommand<object>(prijaviSe, mozeLiSePrijaviti);
         }
 
-        public void prijaviSe(object parametar)
+            public Korisnik dajKorisnika(KorisnikTabela k)
         {
-            foreach (Korisnik k in KAerodrom.Korisnici)
-            {
-                
-                if (k.KorisnickoIme.Equals(KorisnickoImeUnos) && k.Lozinka.Equals(LozinkaUnos))
-                {
-                    if (k.Priv == "Kupac")
-                        NavigationService.Navigate(typeof(ProfilKorisnika), new ProfilKorisnikaViewModel(k));
-                    else if (k.Priv == "Admin")
-                        NavigationService.Navigate(typeof(AdminPanel), new AdminPanelViewModel(k));
-                    else
-                        NavigationService.Navigate(typeof(listaAdresa));
-                    return;
-                }
-            }
-            Messenger.prikaziPoruku("Ne postoji račun s unesenim podacima. Molimo pokušajte ponovo!");
+            Korisnik korisnik = new Korisnik();
+            korisnik.Ime = k.ime;
+            korisnik.Prezime = k.prezime;
+            korisnik.Jmbg = k.jmbg;
+            korisnik.KorisnickoIme = k.korisnickoIme;
+            korisnik.Lozinka = k.lozinka;
+            korisnik.Opcija12Mjeseci = k.opcija12Mjeseci;
+            korisnik.Opcija1Mjesec = k.opcija1Mjesec;
+            korisnik.Opcija6Mjeseci = k.opcija6Mjeseci;
+            korisnik.Priv = k.priv;
+            korisnik.Email = k.email;
+            korisnik.DatumRodjenja = k.datumRodjenja;
+            korisnik.BrojTelefona = k.brojTelefona;
+            korisnik.BrojKreditneKartice = k.brojKreditneKartice;
+            korisnik.AdresaStanovanja = k.adresaStanovanja;
+            korisnik.Admin = k.admin;
+            return korisnik;
+          
         }
+
+       
+            public async void prijaviSe(object parametar)
+            {
+                Boolean nekiBool = true;
+                IMobileServiceTable<KorisnikTabela> tabelica = App.MobileService.GetTable<KorisnikTabela>();
+                List<KorisnikTabela> lista = await tabelica.ToListAsync();
+                KorisnikTabela kor = new KorisnikTabela();
+                if (!lista.Any(x => x.korisnickoIme == KorisnickoImeUnos)) nekiBool = false;
+                kor = lista.Find(x => x.korisnickoIme == KorisnickoImeUnos);
+                if (kor.lozinka != LozinkaUnos) nekiBool = false;
+
+                if (nekiBool)
+                {             
+                        Korisnik korisnik = dajKorisnika(kor);
+                        if (korisnik.Priv == "Kupac")
+                            NavigationService.Navigate(typeof(ProfilKorisnika), new ProfilKorisnikaViewModel(korisnik));
+                        else if (korisnik.Priv == "Admin")
+                            NavigationService.Navigate(typeof(AdminPanel), new AdminPanelViewModel(korisnik));
+                        else
+                            NavigationService.Navigate(typeof(listaAdresa));
+                        return;
+
+                }
+                 else Messenger.prikaziPoruku("Ne postoji račun s unesenim podacima. Molimo pokušajte ponovo!");
+            }
+
+        
 
         public bool mozeLiSePrijaviti(object parametar)
         {

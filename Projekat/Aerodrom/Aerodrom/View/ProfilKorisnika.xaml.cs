@@ -37,6 +37,9 @@ namespace Aerodrom
             currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
         }
 
-    
+        private void kupi_Copy_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -41,7 +41,7 @@
 
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <FlipView x:Name="Flip" Margin="151,85,159,0" VerticalAlignment="Top" Height="251">
+        <FlipView x:Name="Flip" Margin="151,85,159,0" VerticalAlignment="Top" Height="251" Background="#19000000">
             <Image Source="Assets/london.png" />
         </FlipView>
         <Button x:Name="Kupi" Content="Kupi kartu" HorizontalAlignment="Stretch" Margin="263,369,263,0" VerticalAlignment="Top" Height="39"/>

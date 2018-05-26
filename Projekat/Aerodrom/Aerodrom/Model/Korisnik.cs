@@ -93,7 +93,7 @@ namespace Aerodrom.Model
         public bool Opcija1Mjesec { get => opcija1Mjesec; set => opcija1Mjesec = value; }
         public bool Opcija6Mjeseci { get => opcija6Mjeseci; set => opcija6Mjeseci = value; }
         public bool Opcija12Mjeseci { get => opcija12Mjeseci; set => opcija12Mjeseci = value; }
-        public int Id { get => id; }
+       
         public String Priv { get => priv; set { priv = value; if (value == "Admin") admin = true; } }
         public bool Selektovan { get => selektovan; set => selektovan = value; }
         public bool Admin { get => admin; set => admin = value; }

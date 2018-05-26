@@ -41,7 +41,7 @@ namespace Aerodrom.ViewModel
 
         public void dodavanjeKorisnika(object parametar)
         {
-            //KAerodrom.Korisnici.Add(Korisnik);
+            KAerodrom.Korisnici.Add(Korisnik);
 
             try
             {
@@ -79,7 +79,12 @@ namespace Aerodrom.ViewModel
 
                       
         }
+        public void brisanjeKorisnika(object parametar)
+        {
+            
 
+            
+        }
         public bool mozeLiSeDodatiKorisnik(object parametar)
         {
             return true;
