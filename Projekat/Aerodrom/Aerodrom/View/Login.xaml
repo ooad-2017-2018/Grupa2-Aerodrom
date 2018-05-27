@@ -7,47 +7,47 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" Width="830" Height="450" HorizontalAlignment="Left" VerticalAlignment="Top">
 
-<<<<<<< HEAD
     <Grid Margin="0,0,0,0" Background="#FF9EB7EE">
-=======
-    <Grid Margin="0,0,0,0">
-        <Grid.Background>
-            <ImageBrush ImageSource="ms-appx:///Assets/Airplane2.gif" Stretch="UniformToFill"/>
-        </Grid.Background>
->>>>>>> 32b15a209d647746c7e714ed577640caf5f15c1e
 
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="VisualStateGroup">
+        <Grid Margin="0,0,0,0">
+            <Grid.Background>
+                <ImageBrush ImageSource="ms-appx:///Assets/Airplane2.gif" Stretch="UniformToFill"/>
+            </Grid.Background>
 
-                <VisualState x:Name="Usko">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
 
-                        <Setter Target="Korisnicko.Margin" Value="30,148,0,0"/>
-                        <Setter Target="Lozinka.Margin" Value="30,196,0,0"/>
-                        <Setter Target="Prijava.Margin" Value="30,240,0,0"/>
-                        <Setter Target="Otkazi.Margin" Value="149,240,0,0"/>
-                        <Setter Target="Stranica.Width" Value="300"/>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="VisualStateGroup">
 
-                    </VisualState.Setters>
-                </VisualState>
+                    <VisualState x:Name="Usko">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="0" />
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
 
-                <VisualState x:Name="Siroko">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="830" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
+                            <Setter Target="Korisnicko.Margin" Value="30,148,0,0"/>
+                            <Setter Target="Lozinka.Margin" Value="30,196,0,0"/>
+                            <Setter Target="Prijava.Margin" Value="30,240,0,0"/>
+                            <Setter Target="Otkazi.Margin" Value="149,240,0,0"/>
+                            <Setter Target="Stranica.Width" Value="300"/>
 
-                    </VisualState.Setters>
-                </VisualState>
+                        </VisualState.Setters>
+                    </VisualState>
 
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+                    <VisualState x:Name="Siroko">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="830" />
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
 
-        <TextBox x:Name="Korisnicko" Margin="305,148,0,0" Height="27" PlaceholderText="Korisničko ime" HorizontalAlignment="Left" Width="220" VerticalAlignment="Top" Text="{Binding Path=KorisnickoImeUnos, Mode=TwoWay}"/>
-        <Button x:Name="Prijava" Content="Prijava" HorizontalAlignment="Left" Margin="305,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.154,0.188" Width="220" IsDoubleTapEnabled="True" Command="{Binding Path= PrijaviSe}"/>
-        <PasswordBox x:Name="Lozinka" HorizontalAlignment="Left" Margin="305,195,0,0" VerticalAlignment="Top" Width="220" Height="27" PlaceholderText="Lozinka" Password="{Binding Path=LozinkaUnos, Mode=TwoWay}"/>
+                        </VisualState.Setters>
+                    </VisualState>
+
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+
+            <TextBox x:Name="Korisnicko" Margin="305,148,0,0" Height="27" PlaceholderText="Korisničko ime" HorizontalAlignment="Left" Width="220" VerticalAlignment="Top" Text="{Binding Path=KorisnickoImeUnos, Mode=TwoWay}"/>
+            <Button x:Name="Prijava" Content="Prijava" HorizontalAlignment="Left" Margin="305,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.154,0.188" Width="220" IsDoubleTapEnabled="True" Command="{Binding Path= PrijaviSe}"/>
+            <PasswordBox x:Name="Lozinka" HorizontalAlignment="Left" Margin="305,195,0,0" VerticalAlignment="Top" Width="220" Height="27" PlaceholderText="Lozinka" Password="{Binding Path=LozinkaUnos, Mode=TwoWay}"/>
+        </Grid>
     </Grid>
 </Page>

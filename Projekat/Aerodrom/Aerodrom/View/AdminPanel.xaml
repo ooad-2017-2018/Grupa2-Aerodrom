@@ -60,27 +60,29 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-<<<<<<< HEAD
-        <ScrollViewer x:Name="Scroll" Margin="0,0,0,0" Width="830" Background="#FF9EB7EE">
-=======
-        <ScrollViewer x:Name="Scroll" Margin="0,0,0,0" Width="830">
-            <ScrollViewer.Background>
-                <ImageBrush ImageSource="ms-appx:///Assets/Airplane.gif"/>
-            </ScrollViewer.Background>
->>>>>>> 32b15a209d647746c7e714ed577640caf5f15c1e
-            <Grid x:Name="ScrollGrid" Width="830" Height="490">
-                <ListView x:Name="Racuni" HorizontalAlignment="Left" Height="145" Margin="30,85,0,0" VerticalAlignment="Top" Width="765" Header="Upravljanje računima" BorderThickness="2,1,1,2" BorderBrush="Black" ItemsSource="{Binding Path=Korisnici, Mode=TwoWay}" ItemTemplate="{StaticResource koirsnikListItem}"/>
-                <TextBlock HorizontalAlignment="Left" Margin="35,245,0,0" Text="Pošalji obavijest" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <TextBox x:Name="Poruka" HorizontalAlignment="Left" Margin="30,320,0,0" Text="" VerticalAlignment="Top" Height="105" Width="765" PlaceholderText="Poruka"/>
-                <Button x:Name="Otkazi" Content="Otkaži" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,440,0,0" Width="110"/>
-                <Button x:Name="Posalji" Content="Pošalji odabranim korisnicima" HorizontalAlignment="Left" Margin="161,440,0,0" VerticalAlignment="Top" Width="225"/>
-                <TextBlock HorizontalAlignment="Left" Margin="30,20,0,0" Text="Dobrodošli" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36"/>
-                <CheckBox x:Name="SviKorisnici" Content="Svi korisnici" HorizontalAlignment="Left" Margin="31,272,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="SviDostavljaci" Content="Svi dostavljači" HorizontalAlignment="Left" Margin="153,272,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="SviAdmini" Content="Svi admini" HorizontalAlignment="Left" Margin="289,272,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="Izmjeni" Content="Profil" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="609,440,0,0" Width="185" Command="{Binding Path=OtvoriProfil}"/>
-                <Button Content="Obrisi odabrane korisnike" HorizontalAlignment="Left" Margin="404,440,0,0" VerticalAlignment="Top" Command="{Binding Path=ObrisiKorisnika}"/>
-            </Grid>
-        </ScrollViewer>
-    </Grid>
+
+        
+
+
+            <ScrollViewer x:Name="Scroll" Margin="0,0,0,0" Width="830">
+                <ScrollViewer.Background>
+                    <ImageBrush ImageSource="ms-appx:///Assets/Airplane.gif"/>
+                </ScrollViewer.Background>
+
+                <Grid x:Name="ScrollGrid" Width="830" Height="490">
+                    <ListView x:Name="Racuni" HorizontalAlignment="Left" Height="145" Margin="30,85,0,0" VerticalAlignment="Top" Width="765" Header="Upravljanje računima" BorderThickness="2,1,1,2" BorderBrush="Black" ItemsSource="{Binding Path=Korisnici, Mode=TwoWay}" ItemTemplate="{StaticResource koirsnikListItem}"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="35,245,0,0" Text="Pošalji obavijest" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                    <TextBox x:Name="Poruka" HorizontalAlignment="Left" Margin="30,320,0,0" Text="" VerticalAlignment="Top" Height="105" Width="765" PlaceholderText="Poruka"/>
+                    <Button x:Name="Otkazi" Content="Otkaži" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,440,0,0" Width="110"/>
+                    <Button x:Name="Posalji" Content="Pošalji odabranim korisnicima" HorizontalAlignment="Left" Margin="161,440,0,0" VerticalAlignment="Top" Width="225"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="30,20,0,0" Text="Dobrodošli" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36"/>
+                    <CheckBox x:Name="SviKorisnici" Content="Svi korisnici" HorizontalAlignment="Left" Margin="31,272,0,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="SviDostavljaci" Content="Svi dostavljači" HorizontalAlignment="Left" Margin="153,272,0,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="SviAdmini" Content="Svi admini" HorizontalAlignment="Left" Margin="289,272,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="Izmjeni" Content="Profil" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="609,440,0,0" Width="185" Command="{Binding Path=OtvoriProfil}"/>
+                    <Button Content="Obrisi odabrane korisnike" HorizontalAlignment="Left" Margin="404,440,0,0" VerticalAlignment="Top" Command="{Binding Path=ObrisiKorisnika}"/>
+                </Grid>
+            </ScrollViewer>
+        
+        </Grid>
 </Page>
