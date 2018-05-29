@@ -22,7 +22,6 @@ namespace Aerodrom.ViewModel
     {
         
         IMobileServiceTable<KorisnikTabela> userTableObj = App.MobileService.GetTable<KorisnikTabela>();
-        IMobileServiceTable<TestDB> testTable = App.MobileService.GetTable<TestDB>();
 
         public HomepageViewModel Parent { get; set; }
         public ICommand DodavanjeKorisnika { get; set; }
@@ -39,35 +38,17 @@ namespace Aerodrom.ViewModel
             Korisnik.ErrorsChanged += Vm_ErrorsChanged;
         }
 
-        public void dodavanjeKorisnika(object parametar)
-        {
-            KAerodrom.Korisnici.Add(Korisnik);
+        public async void dodavanjeKorisnika(object parametar)
+        {           
 
             try
             {
-                KorisnikTabela obj = new KorisnikTabela();
-                TestDB testObj = new TestDB();
-                testObj.atribut = "Testni3";
-              
+                KorisnikTabela obj = dajObjekat(Korisnik);
+                
+                List<KorisnikTabela> lista = await userTableObj.ToListAsync();
+                if (lista.Count() == 0) obj.priv = "Admin";
 
-                obj.ime = Korisnik.Ime;
-                obj.prezime = Korisnik.Prezime;
-                obj.adresaStanovanja = Korisnik.AdresaStanovanja;
-                obj.brojKreditneKartice = Korisnik.BrojKreditneKartice;
-                obj.brojTelefona = Korisnik.BrojTelefona;
-                obj.datumRodjenja = Korisnik.DatumRodjenja;
-                obj.email = Korisnik.Email;             
-                obj.korisnickoIme = Korisnik.KorisnickoIme;
-                obj.lozinka = Korisnik.Lozinka;
-                obj.opcija12Mjeseci = Korisnik.Opcija12Mjeseci;
-                obj.opcija6Mjeseci = Korisnik.Opcija6Mjeseci;
-                obj.opcija1Mjesec = Korisnik.Opcija1Mjesec;
-                obj.priv = Korisnik.Priv;
-                obj.admin = Korisnik.Admin;
-                obj.jmbg = Korisnik.Jmbg;             
-
-                userTableObj.InsertAsync(obj);
-                testTable.InsertAsync(testObj);
+                userTableObj.InsertAsync(obj);              
 
                 Messenger.prikaziPoruku("Korisnik je uspjesno registrovan!");
                 Parent.NavigationService.GoBack();
@@ -79,6 +60,30 @@ namespace Aerodrom.ViewModel
 
                       
         }
+
+        public static KorisnikTabela dajObjekat(Korisnik Korisnik)
+        {
+            KorisnikTabela obj = new KorisnikTabela();
+
+            obj.ime = Korisnik.Ime;
+            obj.prezime = Korisnik.Prezime;
+            obj.adresaStanovanja = Korisnik.AdresaStanovanja;
+            obj.brojKreditneKartice = Korisnik.BrojKreditneKartice;
+            obj.brojTelefona = Korisnik.BrojTelefona;
+            obj.datumRodjenja = Korisnik.DatumRodjenja;
+            obj.email = Korisnik.Email;
+            obj.korisnickoIme = Korisnik.KorisnickoIme;
+            obj.lozinka = Korisnik.Lozinka;
+            obj.opcija12Mjeseci = Korisnik.Opcija12Mjeseci;
+            obj.opcija6Mjeseci = Korisnik.Opcija6Mjeseci;
+            obj.opcija1Mjesec = Korisnik.Opcija1Mjesec;
+            obj.priv = Korisnik.Priv;
+            obj.admin = Korisnik.Admin;
+            obj.jmbg = Korisnik.Jmbg;
+
+            return obj;
+        }
+
         public void brisanjeKorisnika(object parametar)
         {
             

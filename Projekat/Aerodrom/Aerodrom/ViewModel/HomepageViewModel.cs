@@ -18,13 +18,7 @@ namespace Aerodrom.ViewModel
         public ICommand OtvoriLogin { get; set; }     
 
         public HomepageViewModel()
-        {
-            Korisnik admin = new Korisnik("Karim", "Alomerovic", "Hamida Besirevica 97", "1234567890123", "1234", new DateTime(1997,12,16), 123123123);
-            admin.KorisnickoIme = "a";
-            admin.Lozinka = "a";
-            admin.Priv = "Admin";
-            if (KAerodrom.Korisnici.Count() == 0)
-                KAerodrom.Korisnici.Add(admin);
+        {          
             OtvoriRegistraciju = new RelayCommand<object>(otvoriRegistraciju, mozeLiSeOtvoritiRegistracija);
             OtvoriLogin = new RelayCommand<object>(otvoriLogin, mozeLiSeOtvoritiLogin);
             NavigationService = new NavigationService();          

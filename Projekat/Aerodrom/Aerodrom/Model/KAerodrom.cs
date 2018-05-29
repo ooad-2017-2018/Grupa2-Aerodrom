@@ -4,13 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using Aerodrom.DB;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace Aerodrom.Model
 {
     public class KAerodrom
     {
-        static List<Korisnik> korisnici = new List<Korisnik>();
+       
 
-        public static List<Korisnik> Korisnici { get => korisnici; set => korisnici = value; }
+      
+
+       
     }
 }

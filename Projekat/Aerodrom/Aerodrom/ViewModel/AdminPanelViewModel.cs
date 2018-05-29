@@ -6,15 +6,19 @@ using System.Threading.Tasks;
 using Aerodrom.Model;
 using System.Windows.Input;
 using Aerodrom.Helper;
+using Microsoft.WindowsAzure.MobileServices;
+using Aerodrom.DB;
+using Aerodrom.ViewModel.Helper;
+using Windows.UI.Xaml.Controls;
+using System.Collections.ObjectModel;
 
 namespace Aerodrom.ViewModel
 {
     class AdminPanelViewModel
     {
-        
         public String Poruka { get; set; }
         public List<String> Primaoci { get; set; }
-        public List<Korisnik> Korisnici { get; set; }
+        public ObservableCollection<Korisnik> Korisnici { get; set; }
         public bool SviDostavljaci { get; set; }
         public bool SviKupci { get; set; }
         public bool SviAdmini { get; set; }
@@ -25,17 +29,18 @@ namespace Aerodrom.ViewModel
         public ICommand ObrisiKorisnika { get; set; }
         public ICommand IzmijeniPrivilegiju { get; set; }
         public ICommand OtkaziSlanje { get; set; }
+        IMobileServiceTable<KorisnikTabela> tabelaKorisnika = App.MobileService.GetTable<KorisnikTabela>();
 
         public AdminPanelViewModel(Korisnik k)
         {
             Korisnik = k;
-            Korisnici = KAerodrom.Korisnici;
+            Korisnici = new ObservableCollection<Korisnik>();
             OtvoriProfil = new RelayCommand<object>(otvoriProfil, mozeLiSeOtvoritiProfil);
             PosaljiPoruku = new RelayCommand<object>(posaljiPoruku, mozeLiSePoslatiPoruka);
             ObrisiKorisnika = new RelayCommand<object>(obrisiKorisnika, mozeLiSeObrisatiKorisnik);
             IzmijeniPrivilegiju = new RelayCommand<object>(izmijeniPriviliegiju, mozeLiSeIzmijenitiPrivilegija);
             OtkaziSlanje = new RelayCommand<object>(otkaziSlanje, mozeLiSeOtkazatiSlanje);
-            NavigationService = new NavigationService();
+            NavigationService = new NavigationService();           
         }
 
         public void otvoriProfil(object p)
@@ -68,18 +73,21 @@ namespace Aerodrom.ViewModel
             return true;
         }
 
-        public void obrisiKorisnika(object p)
+        public async void obrisiKorisnika(object o)
         {
-            foreach (Korisnik k in KAerodrom.Korisnici.ToList())
+            foreach (Korisnik k in Korisnici.ToList())
             {
                 if (k.Selektovan)
                 {
-                    KAerodrom.Korisnici.Remove(k);
+                    var obj = (await tabelaKorisnika.Where(p => p.korisnickoIme == k.KorisnickoIme).ToEnumerableAsync()).Single();
+                    if (obj != null)
+                    {
+                        //obj.priv = Priv;
+                        await tabelaKorisnika.DeleteAsync(obj);
+                        Korisnici.Remove(k);
+                    }
                 }
-            }
-            Korisnici = KAerodrom.Korisnici;
-            //REFRESH, traziti bolju alternativu
-            NavigationService.Navigate(typeof(AdminPanel), new AdminPanelViewModel(Korisnik));
+            }          
         }
 
         public bool mozeLiSeObrisatiKorisnik(object p)
@@ -88,7 +96,7 @@ namespace Aerodrom.ViewModel
         }
         public void izmijeniPriviliegiju(object p)
         {
-
+            //Messenger.prikaziPoruku("OK");
         }
 
         public bool mozeLiSeIzmijenitiPrivilegija(object p)

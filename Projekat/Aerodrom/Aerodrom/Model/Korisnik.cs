@@ -7,6 +7,12 @@ using System.ComponentModel;
 using Windows.System;
 using System.ComponentModel.DataAnnotations;
 using Prism.Windows.Validation;
+using System.Windows.Input;
+using Aerodrom.Helper;
+using Microsoft.WindowsAzure.MobileServices;
+using Aerodrom.DB;
+using Aerodrom.ViewModel;
+using Aerodrom.ViewModel.Helper;
 
 namespace Aerodrom.Model
 {
@@ -50,7 +56,6 @@ namespace Aerodrom.Model
             BrojKreditneKartice = brojKreditneKartice;
             DatumRodjenja = datumRodjenja;
             BrojTelefona = brojTelefona;
-           
             id = brojac++;
         }
 
@@ -94,9 +99,29 @@ namespace Aerodrom.Model
         public bool Opcija6Mjeseci { get => opcija6Mjeseci; set => opcija6Mjeseci = value; }
         public bool Opcija12Mjeseci { get => opcija12Mjeseci; set => opcija12Mjeseci = value; }
        
-        public String Priv { get => priv; set { priv = value; if (value == "Admin") admin = true; } }
+        public String Priv { get => priv; set
+            {
+                
+                priv = value;
+                if (value == "Admin")
+                    admin = true;
+                Update();
+            } }
         public bool Selektovan { get => selektovan; set => selektovan = value; }
         public bool Admin { get => admin; set => admin = value; }
-        
+        public async void Update()
+        {
+            
+            IMobileServiceTable<KorisnikTabela> tabelaKorisnika = App.MobileService.GetTable<KorisnikTabela>();
+            if (korisnickoIme != null)
+            {
+                var obj = (await tabelaKorisnika.Where(p => p.korisnickoIme == this.korisnickoIme).ToEnumerableAsync()).Single();
+                if (obj != null)
+                {
+                    obj.priv = Priv;
+                    await tabelaKorisnika.UpdateAsync(obj);
+                }
+            }
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace Aerodrom.ViewModel
 {
     class LoginViewModel
     {
-        IMobileServiceTable<KorisnikTabela> userTableObj = App.MobileService.GetTable<KorisnikTabela>();
+        IMobileServiceTable<KorisnikTabela> tabelaKorisnika = App.MobileService.GetTable<KorisnikTabela>();
         public String KorisnickoImeUnos { get; set; }
         public String LozinkaUnos { get; set; }
         public HomepageViewModel Parent { get; set; }
@@ -37,7 +37,7 @@ namespace Aerodrom.ViewModel
             PrijaviSe = new RelayCommand<object>(prijaviSe, mozeLiSePrijaviti);
         }
 
-            public Korisnik dajKorisnika(KorisnikTabela k)
+        public static Korisnik dajKorisnika(KorisnikTabela k)
         {
             Korisnik korisnik = new Korisnik();
             korisnik.Ime = k.ime;
@@ -56,36 +56,38 @@ namespace Aerodrom.ViewModel
             korisnik.AdresaStanovanja = k.adresaStanovanja;
             korisnik.Admin = k.admin;
             return korisnik;
-          
         }
 
        
-            public async void prijaviSe(object parametar)
-            {
-                Boolean nekiBool = true;
-                IMobileServiceTable<KorisnikTabela> tabelica = App.MobileService.GetTable<KorisnikTabela>();
-                List<KorisnikTabela> lista = await tabelica.ToListAsync();
-                KorisnikTabela kor = new KorisnikTabela();
-                if (!lista.Any(x => x.korisnickoIme == KorisnickoImeUnos)) nekiBool = false;
-                kor = lista.Find(x => x.korisnickoIme == KorisnickoImeUnos);
-                if (kor.lozinka != LozinkaUnos) nekiBool = false;
+        public async void prijaviSe(object parametar)
+        {
+            Boolean nekiBool = true;
+            List<KorisnikTabela> lista = await tabelaKorisnika.ToListAsync();
+            KorisnikTabela kor = new KorisnikTabela();
+            if (!lista.Any(x => x.korisnickoIme == KorisnickoImeUnos && x.lozinka == LozinkaUnos)) nekiBool = false;
+            kor = lista.Find(x => x.korisnickoIme == KorisnickoImeUnos);             
 
-                if (nekiBool)
-                {             
-                        Korisnik korisnik = dajKorisnika(kor);
-                        if (korisnik.Priv == "Kupac")
-                            NavigationService.Navigate(typeof(ProfilKorisnika), new ProfilKorisnikaViewModel(korisnik));
-                        else if (korisnik.Priv == "Admin")
-                            NavigationService.Navigate(typeof(AdminPanel), new AdminPanelViewModel(korisnik));
-                        else
-                            NavigationService.Navigate(typeof(listaAdresa));
-                        return;
+            if (nekiBool)
+            {             
+                Korisnik korisnik = dajKorisnika(kor);
+                if (korisnik.Priv == "Kupac")
+                    NavigationService.Navigate(typeof(ProfilKorisnika), new ProfilKorisnikaViewModel(korisnik));
+                else if (korisnik.Priv == "Admin")
+                {
+                    AdminPanelViewModel ap = new AdminPanelViewModel(korisnik);
+                    foreach (KorisnikTabela kt in lista)
+                    {
+                        ap.Korisnici.Add(LoginViewModel.dajKorisnika(kt));
+                    }
 
+                    NavigationService.Navigate(typeof(AdminPanel), ap);
                 }
-                 else Messenger.prikaziPoruku("Ne postoji račun s unesenim podacima. Molimo pokušajte ponovo!");
+                else
+                    NavigationService.Navigate(typeof(listaAdresa));
+                return;
             }
-
-        
+                else Messenger.prikaziPoruku("Ne postoji račun s unesenim podacima. Molimo pokušajte ponovo!");
+        }
 
         public bool mozeLiSePrijaviti(object parametar)
         {
