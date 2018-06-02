@@ -79,22 +79,20 @@ namespace Aerodrom.Model
         public string Prezime { get => prezime; set { SetProperty(ref prezime, value); } }
         [Required(ErrorMessage = "Niste unijeli adresu stanovanja.")]
         public string AdresaStanovanja { get => adresaStanovanja; set { SetProperty(ref adresaStanovanja, value); } }
-        [Required(ErrorMessage = "Niste unijeli jmbg.")]
+        [Required(ErrorMessage = "Niste unijeli jmbg."), RegularExpression(@"\d{13}", ErrorMessage = "JMBG je 13 cifri!")]
         public string Jmbg { get => jmbg; set { SetProperty(ref jmbg, value); } }
         [Required(ErrorMessage = "Niste unijeli broj kreditne kartice.")]
         public string BrojKreditneKartice { get => brojKreditneKartice; set { SetProperty(ref brojKreditneKartice, value); } }
         public DateTime DatumRodjenja
-        {
-            get => datumRodjenja; set => datumRodjenja = value;
-        }
-        [Required(ErrorMessage = "Niste unijeli broj telefona.")]
+        {get => datumRodjenja; set => datumRodjenja = value;}
+        [Required(ErrorMessage = "Niste unijeli broj telefona."), RegularExpression(@"\d{9}", ErrorMessage = "Broj telefona je 9 cifri!")]
         public int BrojTelefona { get => brojTelefona; set { SetProperty(ref brojTelefona, value); } }
         [Required(ErrorMessage = "Niste unijeli email.")]
         public string Email { get => email; set { SetProperty(ref email, value); } }
         [Required(ErrorMessage = "Niste unijeli korisnicko ime.")]
-        public string KorisnickoIme { get => korisnickoIme; set => korisnickoIme = value; }
+        public string KorisnickoIme { get => korisnickoIme; set { SetProperty(ref korisnickoIme, value); } }
         [Required(ErrorMessage = "Niste unijeli lozinku.")]
-        public string Lozinka { get => lozinka; set => lozinka = value; }
+        public string Lozinka { get => lozinka; set { SetProperty(ref lozinka, value); } }
         public bool Opcija1Mjesec { get => opcija1Mjesec; set => opcija1Mjesec = value; }
         public bool Opcija6Mjeseci { get => opcija6Mjeseci; set => opcija6Mjeseci = value; }
         public bool Opcija12Mjeseci { get => opcija12Mjeseci; set => opcija12Mjeseci = value; }
@@ -104,7 +102,11 @@ namespace Aerodrom.Model
                 
                 priv = value;
                 if (value == "Admin")
+                {
                     admin = true;
+                }
+                else
+                    admin = false;
                 Update();
             } }
         public bool Selektovan { get => selektovan; set => selektovan = value; }
@@ -119,6 +121,7 @@ namespace Aerodrom.Model
                 if (obj != null)
                 {
                     obj.priv = Priv;
+                    obj.admin = Admin;
                     await tabelaKorisnika.UpdateAsync(obj);
                 }
             }

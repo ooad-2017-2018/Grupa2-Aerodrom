@@ -27,19 +27,25 @@ namespace Aerodrom
         public ProfilKorisnika()
         {
             this.InitializeComponent();
-          
+            
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             DataContext = (ProfilKorisnikaViewModel)e.Parameter;
             var currentView = SystemNavigationManager.GetForCurrentView();
-            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
         }
 
-        private void kupi_Copy_Click(object sender, RoutedEventArgs e)
+        private void ThisPage_BackRequested(object sender, BackRequestedEventArgs e)
         {
-
+            if (Frame.CanGoBack)
+            {
+                Frame.GoBack();
+                e.Handled = true;
+            }
         }
+
+      
     }
 }

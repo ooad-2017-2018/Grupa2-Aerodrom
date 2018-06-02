@@ -11,9 +11,7 @@ using Windows.UI.Popups;
 using Aerodrom.View;
 using Microsoft.WindowsAzure.MobileServices;
 using Aerodrom.DB;
-using Aerodrom.Helper;
 using System.Data;
-
 using System.Diagnostics;
 
 
@@ -61,32 +59,37 @@ namespace Aerodrom.ViewModel
        
         public async void prijaviSe(object parametar)
         {
-            Boolean nekiBool = true;
-            List<KorisnikTabela> lista = await tabelaKorisnika.ToListAsync();
-            KorisnikTabela kor = new KorisnikTabela();
-            if (!lista.Any(x => x.korisnickoIme == KorisnickoImeUnos && x.lozinka == LozinkaUnos)) nekiBool = false;
-            kor = lista.Find(x => x.korisnickoIme == KorisnickoImeUnos);             
+            if (KorisnickoImeUnos != null && LozinkaUnos != null)
+            {
+                Boolean nekiBool = true;
+                List<KorisnikTabela> lista = await tabelaKorisnika.ToListAsync();
+                KorisnikTabela kor = new KorisnikTabela();
+                if (!lista.Any(x => x.korisnickoIme == KorisnickoImeUnos && x.lozinka == LozinkaUnos)) nekiBool = false;
+                kor = lista.Find(x => x.korisnickoIme == KorisnickoImeUnos);
 
-            if (nekiBool)
-            {             
-                Korisnik korisnik = dajKorisnika(kor);
-                if (korisnik.Priv == "Kupac")
-                    NavigationService.Navigate(typeof(ProfilKorisnika), new ProfilKorisnikaViewModel(korisnik));
-                else if (korisnik.Priv == "Admin")
+                if (nekiBool)
                 {
-                    AdminPanelViewModel ap = new AdminPanelViewModel(korisnik);
-                    foreach (KorisnikTabela kt in lista)
+                    Korisnik korisnik = dajKorisnika(kor);
+                    if (korisnik.Priv == "Kupac")
+                        NavigationService.Navigate(typeof(ProfilKorisnika), new ProfilKorisnikaViewModel(korisnik));
+                    else if (korisnik.Priv == "Admin")
                     {
-                        ap.Korisnici.Add(LoginViewModel.dajKorisnika(kt));
-                    }
+                        AdminPanelViewModel ap = new AdminPanelViewModel(korisnik);
+                        foreach (KorisnikTabela kt in lista)
+                        {
+                            ap.Korisnici.Add(LoginViewModel.dajKorisnika(kt));
+                        }
 
-                    NavigationService.Navigate(typeof(AdminPanel), ap);
+                        NavigationService.Navigate(typeof(AdminPanel), ap);
+                    }
+                    else
+                        NavigationService.Navigate(typeof(listaAdresa));
+                    return;
                 }
-                else
-                    NavigationService.Navigate(typeof(listaAdresa));
-                return;
-            }
                 else Messenger.prikaziPoruku("Ne postoji račun s unesenim podacima. Molimo pokušajte ponovo!");
+            }
+            else
+                Messenger.prikaziPoruku("Molimo pupunite polja.");
         }
 
         public bool mozeLiSePrijaviti(object parametar)

@@ -13,7 +13,6 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Microsoft.WindowsAzure.MobileServices;
-using Windows.UI.Popups;
 using Aerodrom.DB;
 
 namespace Aerodrom.ViewModel
@@ -39,25 +38,31 @@ namespace Aerodrom.ViewModel
         }
 
         public async void dodavanjeKorisnika(object parametar)
-        {           
+        {
 
-            try
+            if ((Korisnik.Opcija12Mjeseci || Korisnik.Opcija1Mjesec || Korisnik.Opcija6Mjeseci) && Korisnik.Errors.Errors.Count == 0)
             {
-                KorisnikTabela obj = dajObjekat(Korisnik);
-                
-                List<KorisnikTabela> lista = await userTableObj.ToListAsync();
-                if (lista.Count() == 0) obj.priv = "Admin";
+                try
+                {
+                    KorisnikTabela obj = dajObjekat(Korisnik);
 
-                userTableObj.InsertAsync(obj);              
+                    List<KorisnikTabela> lista = await userTableObj.ToListAsync();
+                    if (lista.Count() == 0) { obj.priv = "Admin"; obj.admin = true; }
 
-                Messenger.prikaziPoruku("Korisnik je uspjesno registrovan!");
-                Parent.NavigationService.GoBack();
+                    await userTableObj.InsertAsync(obj);
+
+                    Messenger.prikaziPoruku("Korisnik je uspjesno registrovan!");
+                    Parent.NavigationService.GoBack();
+                }
+                catch (Exception ex)
+                {
+                    Messenger.prikaziPoruku("Izuzetak:" + ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Messenger.prikaziPoruku("Izuzetak:" + ex.Message);
+                Messenger.prikaziPoruku("Niste popunili sva polja ili odabrali potrebne opcije.");
             }
-
                       
         }
 

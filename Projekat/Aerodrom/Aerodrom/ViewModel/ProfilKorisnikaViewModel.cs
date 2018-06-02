@@ -69,6 +69,7 @@ namespace Aerodrom.ViewModel
                 obj.jmbg = Korisnik.Jmbg;
                 obj.email = Korisnik.Email;               
                 await tabelaKorisnika.UpdateAsync(obj);
+                Messenger.prikaziPoruku("Promjene uspješno sačuvane!");
             }
         }
 
