@@ -11,7 +11,6 @@ namespace Aerodrom.Models
     {
         public AerodromContext():base("AzureConnection")
         {
-
         }
 
         public DbSet<Karta> Karta { get; set; }

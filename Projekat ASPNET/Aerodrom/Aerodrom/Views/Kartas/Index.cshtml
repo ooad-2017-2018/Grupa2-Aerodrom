@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Aerodrom.Models.Karta>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TipKarte)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatumPolaska)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatumPovratka)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destinacija)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Klasa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sjediste)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrojLeta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kupac)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipKarte)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DatumPolaska)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DatumPovratka)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Destinacija)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Klasa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sjediste)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrojLeta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kupac)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.KartaId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.KartaId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.KartaId })
+        </td>
+    </tr>
+}
+
+</table>

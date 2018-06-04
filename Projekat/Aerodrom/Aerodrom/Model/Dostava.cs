@@ -8,16 +8,16 @@ namespace Aerodrom.Model
 {
    public class Dostava
     {
-        List<Karta> karte;
+        List<KartaKlasa> karte;
         bool dostavljena;
 
-        public Dostava(List<Karta> karte, global::System.Boolean dostavljena)
+        public Dostava(List<KartaKlasa> karte, global::System.Boolean dostavljena)
         {
             this.karte = karte;
             this.dostavljena = dostavljena;
         }
 
-        public List<Karta> Karte { get => karte; set => karte = value; }
+        public List<KartaKlasa> Karte { get => karte; set => karte = value; }
         public global::System.Boolean Dostavljena { get => dostavljena; set => dostavljena = value; }
     }
 }

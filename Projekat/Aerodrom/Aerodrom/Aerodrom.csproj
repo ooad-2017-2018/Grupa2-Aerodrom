@@ -99,7 +99,7 @@
     <Compile Include="Model\Dostava.cs" />
     <Compile Include="Model\Dostavljac.cs" />
     <Compile Include="Model\GostKupac.cs" />
-    <Compile Include="Model\Karta.cs" />
+    <Compile Include="Model\KartaKlasa.cs" />
     <Compile Include="Model\RegistrovaniKupac.cs" />
     <Compile Include="ViewModel\Helper\BooleanToVisibilityConverter.cs" />
     <Compile Include="ViewModel\Helper\DateConverter.cs" />

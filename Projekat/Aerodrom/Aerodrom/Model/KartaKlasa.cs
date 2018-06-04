@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Aerodrom.Model
 {
 
-    public class Karta
+    public class KartaKlasa
     {
 
         string prvaKlasa, businessKlasa, economyKlasa, uJednomSmjeru, PovratnaKarta;
@@ -17,7 +17,7 @@ namespace Aerodrom.Model
         Destinacija destinacija;
         string sjediste, brojLeta;
 
-        public Karta(string prvaKlasa, string businessKlasa, string economyKlasa, string uJednomSmjeru, string povratnaKarta, DateTime datumPolaska, DateTime datumPovratka, Destinacija destinacija, string sjediste, string brojLeta)
+        public KartaKlasa(string prvaKlasa, string businessKlasa, string economyKlasa, string uJednomSmjeru, string povratnaKarta, DateTime datumPolaska, DateTime datumPovratka, Destinacija destinacija, string sjediste, string brojLeta)
         {
             this.prvaKlasa = prvaKlasa;
             this.businessKlasa = businessKlasa;
