@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Aerodrom.Models.Dostava>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Dostave za obaviti";
 }
 
-<h2>Index</h2>
+<h2>Dostave za obaviti</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+   
 </p>
 <table class="table">
     <tr>
@@ -23,9 +23,7 @@
             @Html.DisplayFor(modelItem => item.Kupac)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DostavaId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.DostavaId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DostavaId })
+            @Html.ActionLink("Gotovo", "Delete", new { id=item.DostavaId })
         </td>
     </tr>
 }

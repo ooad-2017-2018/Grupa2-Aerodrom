@@ -81,9 +81,10 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Kupac, htmlAttributes: new { @class = "control-label col-md-2" })
+        
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Kupac, new { htmlAttributes = new { @class = "form-control" } })
+           
+            @Html.EditorFor(model => model.Kupac, new { htmlAttributes = new { @class = "form-control", @Value = User.Identity.Name, style = "display:none"} })
             @Html.ValidationMessageFor(model => model.Kupac, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -97,7 +98,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    
 </div>
 
 @section Scripts {

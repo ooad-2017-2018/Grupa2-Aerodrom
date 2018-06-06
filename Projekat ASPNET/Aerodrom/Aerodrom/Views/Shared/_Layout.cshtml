@@ -21,14 +21,33 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Početna", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Info", "About", "Home")</li>
-                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Kupi kartu", "Create", "Kartas")</li>
-                    <li>@Html.ActionLink("Dostave", "Index", "Dostavas")</li>
+
+                    @if (Aerodrom.Models.User.priv == "Dostavljač")
+                    {
+                        <li>@Html.ActionLink("Dostave", "Index", "Dostavas")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Početna", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Info", "About", "Home")</li>
+                        <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Kupi kartu", "Create", "Kartas")</li>
+                    }
+                    <ul class="nav navbar-nav navbar-right">
+
+                        @if (Request.IsAuthenticated)
+                        {
+
+                            <li>@Html.ActionLink("Log out", "Logout", "User")</li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Log in", "Login", "User")</li>
+                        }
+                    </ul>
 
                 </ul>
-                @Html.Partial("_LoginPartial")
+
             </div>
         </div>
     </div>

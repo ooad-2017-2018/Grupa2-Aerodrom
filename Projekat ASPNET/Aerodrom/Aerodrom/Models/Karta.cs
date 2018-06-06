@@ -25,7 +25,7 @@ namespace Aerodrom.Models
         public String Sjediste { get; set; }
         [Required(ErrorMessage = "Broj je neophodan")]
         public String BrojLeta { get; set; }
-        [Required(ErrorMessage = "Adresa je neophodna za neregistrovane kupce.")]
+        [Required(ErrorMessage = "Adresa je neophodna.")]
         public String AdresaKupca { get; set; }
         public String Kupac { get; set; }
     }

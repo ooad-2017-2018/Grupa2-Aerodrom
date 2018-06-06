@@ -10,8 +10,8 @@ using System.Web;
 namespace Aerodrom.Models
 {
     public class User
-    {       
- 
+    {
+        public static string priv = "";
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public string UserId { get; set; }
@@ -38,13 +38,16 @@ namespace Aerodrom.Models
         {
             var cn = new SqlConnection("Server=tcp:aerodromserver.database.windows.net,1433;Initial Catalog=aerodrombaza;Persist Security Info=False;User ID=Admin1;Password=Adminpass1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;") ;
             {
-                string _sql = @"SELECT korisnickoIme FROM [dbo].[KorisnikTabela] " +
+                string _sql = @"SELECT korisnickoIme, priv FROM [dbo].[KorisnikTabela] " +
                               @"WHERE korisnickoIme = @u AND lozinka = @p";
                 var cmd = new SqlCommand(_sql, cn);
                 cmd.Parameters.Add(new SqlParameter("@u", SqlDbType.NVarChar)).Value = _username;
                 cmd.Parameters.Add(new SqlParameter("@p", SqlDbType.NVarChar)).Value = _password;
+               
                 cn.Open();
                 var reader = cmd.ExecuteReader();
+                reader.Read();
+                priv = reader.GetString(reader.GetOrdinal("priv"));
                 if (reader.HasRows)
                 {
                     reader.Dispose();

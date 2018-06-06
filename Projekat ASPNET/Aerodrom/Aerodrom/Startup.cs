@@ -1,5 +1,9 @@
-﻿using Microsoft.Owin;
+﻿using Aerodrom.Models;
+using Microsoft.Owin;
 using Owin;
+using System.Data;
+using System.Data.SqlClient;
+using System.Web.Security;
 
 [assembly: OwinStartupAttribute(typeof(Aerodrom.Startup))]
 namespace Aerodrom
@@ -8,7 +12,7 @@ namespace Aerodrom
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+            ConfigureAuth(app);          
         }
     }
 }

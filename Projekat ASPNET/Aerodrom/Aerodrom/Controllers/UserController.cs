@@ -33,7 +33,7 @@ namespace Aerodrom.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Login data is incorrect!");
+                    ModelState.AddModelError("", "Neispravni podaci!");
                 }
             }
             return View(user);
@@ -41,6 +41,7 @@ namespace Aerodrom.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
+            Aerodrom.Models.User.priv = "";
             return RedirectToAction("Index", "Home");
         }
     }
