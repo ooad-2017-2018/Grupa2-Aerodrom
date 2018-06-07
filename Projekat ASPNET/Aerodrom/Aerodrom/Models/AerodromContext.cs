@@ -21,5 +21,7 @@ namespace Aerodrom.Models
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+
+        public System.Data.Entity.DbSet<Aerodrom.Models.Mapa> Mapas { get; set; }
     }
 }

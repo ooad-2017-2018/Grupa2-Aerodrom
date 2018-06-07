@@ -5,20 +5,33 @@ using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
 using Aerodrom.Models;
+using Aerodrom.Models.Deserijalizer;
+using Newtonsoft.Json;
 
 namespace Aerodrom.Controllers
 {
     public class KartasController : Controller
     {
         private AerodromContext db = new AerodromContext();
+        public static List<String> Dest;
+
+        public async Task<ActionResult> getDest()
+        {
+            
+            return View();
+        }
 
         // GET: Kartas
         public ActionResult Index()
-        {
+        {   
+            
             return View(db.Karta.ToList());
         }
 
@@ -38,8 +51,41 @@ namespace Aerodrom.Controllers
         }
 
         // GET: Kartas/Create
-        public ActionResult Create()
+        public async Task<ActionResult> Create()
         {
+            Dest = new List<string>();
+            using (var client = new HttpClient())
+            {
+
+                string apiUrl = "https://restcountries.eu/rest/v2/";
+                //Postavljanje adrese URL od web api servisa
+                client.BaseAddress = new Uri(apiUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                //definisanje formata koji želimo prihvatiti
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                //Asinhrono slanje zahtjeva za podacima o studentima
+
+                HttpResponseMessage Res =  await client.GetAsync("all");
+                //Provjera da li je rezultat uspješan
+                if (Res.IsSuccessStatusCode)
+                {
+                    //spremanje podataka dobijenih iz responsa
+                    var response = Res.Content.ReadAsStringAsync().Result;
+                    
+                    //Deserijalizacija responsa dobijenog iz apija i pretvaranje u listu                       
+                    List<Zemlja> zemlje = JsonConvert.DeserializeObject<List<Zemlja>>(response, new JsonSerializerSettings
+                    {
+                        NullValueHandling = NullValueHandling.Ignore
+                    });
+                    
+
+                    foreach (Zemlja z in zemlje)
+                    {
+                        Dest.Add(z.name);
+                    }
+                }
+            }
             return View();
         }
 
